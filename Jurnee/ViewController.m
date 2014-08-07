@@ -52,7 +52,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    NSMutableDictionary * rootObj = [NSMutableDictionary dictionaryWithCapacity:3];
+    NSDictionary * innerDict;
+    NSString * description;
+    
+    description = @"@Test Line ";
+    innerDict =[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"Name", nil] forKeys:[NSArray arrayWithObjects:@"Descriere", nil]];
+    
+    [rootObj setObject:innerDict forKey:@"TIUTLTUTUTU"];
 }
 
 - (void)didReceiveMemoryWarning

@@ -45,6 +45,21 @@
     return self;
 }
 
+
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    
+    
+    UIImage *choseImage = info[UIImagePickerControllerEditedImage];
+    self.image.image = choseImage;
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
