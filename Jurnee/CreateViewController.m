@@ -14,6 +14,20 @@
 
 @implementation CreateViewController
 
+
+
+
+-(IBAction)takePhotoUsingCamera{
+    
+}
+
+
+-(IBAction)selectPhotoFromLibrary{
+    
+}
+
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

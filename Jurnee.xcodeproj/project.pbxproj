@@ -119,9 +119,9 @@
 			children = (
 				81B229F91993677A00C6FC4D /* AppDelegate.h */,
 				81B229FA1993677A00C6FC4D /* AppDelegate.m */,
-				81B229FC1993677A00C6FC4D /* Main_iPhone.storyboard */,
 				81B22A25199373B200C6FC4D /* CreateViewController.h */,
 				81B22A26199373B200C6FC4D /* CreateViewController.m */,
+				81B229FC1993677A00C6FC4D /* Main_iPhone.storyboard */,
 				81B229FF1993677A00C6FC4D /* Main_iPad.storyboard */,
 				81B22A021993677A00C6FC4D /* ViewController.h */,
 				81B22A031993677A00C6FC4D /* ViewController.m */,

@@ -13,6 +13,8 @@
 @property IBOutlet UIImageView * image ;
 @property IBOutlet UITextView * text ;
 
+-(IBAction)takePhotoUsingCamera;
+-(IBAction)selectPhotoFromLibrary;
 
 
 @end
