@@ -12,7 +12,7 @@
 <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 
-@property IBOutlet UIImageView * image ;
+@property (strong,nonatomic) IBOutlet UIImageView * image ;
 @property IBOutlet UITextView * text ;
 
 -(IBAction)takePhotoUsingCamera;

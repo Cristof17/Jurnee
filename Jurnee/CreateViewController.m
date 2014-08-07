@@ -19,7 +19,12 @@
 
 -(IBAction)takePhotoUsingCamera{
     
-   
+    UIImagePickerController * picker = [[UIImagePickerController alloc]init];
+    picker.delegate = self;
+    picker.allowsEditing = NO ;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
     
 }
 
@@ -32,6 +37,12 @@
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentViewController:picker animated:YES completion:NULL];
+}
+
+
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
 
@@ -49,11 +60,44 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
+    NSLog(@"didFinishPickingMediaWithInfo");
     
-    UIImage *choseImage = info[UIImagePickerControllerEditedImage];
-    self.image.image = choseImage;
+   
+
+  /*
+    UIImage * originalImage = nil;
+    
+    originalImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    if(originalImage == nil){
+        originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    }
+    
+    if(originalImage == nil){
+        originalImage = [info objectForKey:UIImagePickerControllerCropRect];
+    }
+    
+    
+    
+    
+    if(originalImage == nil){
+        NSLog(@"Image is nil");
+    }
+    */
+    
+    UIImage * image = info[UIImagePickerControllerEditedImage];
+    
+    if(image == nil){
+        
+        image = info[UIImagePickerControllerOriginalImage];
+        
+        if(image == nil){
+            NSLog(@"Image is nil ");
+        }
+    }
+    self.image.image = image;
+    
     [picker dismissViewControllerAnimated:YES completion:NULL];
-    
 }
 
 
