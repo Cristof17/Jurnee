@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CreateViewController : UIViewController
-<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
 
 
 @property (strong,nonatomic) IBOutlet UIImageView * image ;

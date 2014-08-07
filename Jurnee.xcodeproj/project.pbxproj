@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		817219CB1993DD4100EF58E7 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 817219CA1993DD4100EF58E7 /* default.png */; };
 		81B229EB1993677A00C6FC4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B229EA1993677A00C6FC4D /* Foundation.framework */; };
 		81B229ED1993677A00C6FC4D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B229EC1993677A00C6FC4D /* CoreGraphics.framework */; };
 		81B229EF1993677A00C6FC4D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B229EE1993677A00C6FC4D /* UIKit.framework */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		817219CA1993DD4100EF58E7 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default.png; path = ../../default.png; sourceTree = "<group>"; };
 		81B229E71993677A00C6FC4D /* Jurnee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jurnee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B229EA1993677A00C6FC4D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		81B229EC1993677A00C6FC4D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,6 +140,7 @@
 				81B229F31993677A00C6FC4D /* InfoPlist.strings */,
 				81B229F61993677A00C6FC4D /* main.m */,
 				81B229F81993677A00C6FC4D /* Jurnee-Prefix.pch */,
+				817219CA1993DD4100EF58E7 /* default.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				81B22A061993677A00C6FC4D /* Images.xcassets in Resources */,
 				81B229FE1993677A00C6FC4D /* Main_iPhone.storyboard in Resources */,
 				81B229F51993677A00C6FC4D /* InfoPlist.strings in Resources */,
+				817219CB1993DD4100EF58E7 /* default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +484,7 @@
 				81B22A1E1993677A00C6FC4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81B22A1F1993677A00C6FC4D /* Build configuration list for PBXNativeTarget "JurneeTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +493,7 @@
 				81B22A211993677A00C6FC4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

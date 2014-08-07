@@ -29,6 +29,11 @@
 }
 
 
+-(BOOL)textFieldShouldReturn:(UITextField * )textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 -(IBAction)selectPhotoFromLibrary{
     
     UIImagePickerController * picker = [[UIImagePickerController alloc]init];
@@ -63,27 +68,6 @@
     NSLog(@"didFinishPickingMediaWithInfo");
     
    
-
-  /*
-    UIImage * originalImage = nil;
-    
-    originalImage = [info objectForKey:UIImagePickerControllerEditedImage];
-    
-    if(originalImage == nil){
-        originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-    }
-    
-    if(originalImage == nil){
-        originalImage = [info objectForKey:UIImagePickerControllerCropRect];
-    }
-    
-    
-    
-    
-    if(originalImage == nil){
-        NSLog(@"Image is nil");
-    }
-    */
     
     UIImage * image = info[UIImagePickerControllerEditedImage];
     
@@ -108,6 +92,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self.text setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning
