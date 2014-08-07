@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CreateViewController : UIViewController
+<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+
 
 @property IBOutlet UIImageView * image ;
 @property IBOutlet UITextView * text ;
