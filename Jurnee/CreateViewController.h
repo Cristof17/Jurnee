@@ -19,6 +19,5 @@
 
 -(IBAction)takePhotoUsingCamera;
 -(IBAction)selectPhotoFromLibrary;
--(IBAction)rotate;
 
 @end

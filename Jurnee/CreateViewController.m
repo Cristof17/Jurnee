@@ -108,32 +108,34 @@
     
     
     
-}
-
-
--(void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void * )contextInfo{
-    if(error){
-        UIAlertView * alert =[ [UIAlertView alloc]initWithTitle:@"Save failed" message:@"Failed to save image" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-}
-
-
--(void)rotate{
-    if(self.displayingImage){
     
+    
+    [self performSelector:@selector(animateBackwards) withObject:nil afterDelay:1];
+    
+
+    
+}
+
+-(void)animateBackwards
+{
     [UIView transitionWithView:self.image duration:2 options:UIViewAnimationOptionTransitionFlipFromRight
      
                     animations:^{
                         
                         [UIView animateWithDuration:2 animations:^(void){
-                            NSLog(@"Rotating image with displaying %d ",self.displayingImage);
+                            
                             if(self.displayingImage){
+                                NSLog(@"Setting image alpha to 0 cu displaying %d",self.displayingImage);
                                 
                                 [self.image setAlpha:0];
                                 
+                            }else{
+                                NSLog(@"Setting image alpha to 1 cu displaying %d",self.displayingImage);
                                 
+                                [self.image setAlpha:1];
                             }
+                            
+                            
                             
                             
                         }];
@@ -143,80 +145,43 @@
                     completion: ^(BOOL finished){
                         if(finished){
                             
-                            self.displayingImage = NO;
+                            self.displayingImage = !self.displayingImage;
                         }
                     }];
-        
-        [UIView transitionWithView:self.text duration:2 options:UIViewAnimationOptionTransitionFlipFromRight
-         
-                        animations:^{
-                            
-                            NSLog(@"Rotating text with displaying %d ",self.displayingImage);
-                            
-                            
-                            [UIView animateWithDuration:2 animations:^(void){
-                                [self.text setAlpha:1];
-                            }];
-                        }
-         
-         
-                        completion: ^(BOOL finished){
-                            if(finished){
-                               
-                                self.displayingImage = YES;
-                            }
-                        }];
-    }else{
-        
-        
-                [UIView transitionWithView:self.text duration:2 options:UIViewAnimationOptionTransitionFlipFromRight
-         
-                        animations:^{
-                            NSLog(@"Rotating text with displaying %d ",self.displayingImage);
-                            [UIView animateWithDuration:2 animations:^(void){
-                              [self.text setAlpha:0];
-                            }];
-                        }
-         
-         
-                        completion: ^(BOOL finished){
-                            if(finished){
-                                
-                                self.displayingImage = YES;
-                            }
-                        }];
-
-        
-        [UIView transitionWithView:self.image duration:2 options:UIViewAnimationOptionTransitionFlipFromRight
-         
-                        animations:^{
-                            NSLog(@"Rotating image with displaying %d ",self.displayingImage);
-                            [UIView animateWithDuration:2 animations:^(void){
-                                
-                                if(!self.displayingImage){
-                                    
-                                    
-                                    
-                                    [self.image setAlpha:1];
-                                    
-                                    
-                                }
-                                
-                                
-                            }];
-                        }
-         
-         
-                        completion: ^(BOOL finished){
-                            if(finished){
-                                
-                                self.displayingImage = NO;
-                            }
-                        }];
-        
-
-    }
     
+    [UIView transitionWithView:self.text duration:2 options:UIViewAnimationOptionTransitionFlipFromRight
+     
+                    animations:^{
+                        
+                        
+                        
+                        [UIView animateWithDuration:2 animations:^(void){
+                            if(self.displayingImage){
+                                NSLog(@"Setting text alpha to 1 cu displaying %d",self.displayingImage);
+                                
+                                [self.text setAlpha:1];
+                                
+                            }else{
+                                NSLog(@"Setting text alpha to 0 cu displaying %d",self.displayingImage);
+                                
+                                [self.text setAlpha:0];
+                            }
+                        }];
+                    }
+     
+     
+                    completion: ^(BOOL finished){
+                        if(finished){
+                            
+                        }
+                    }];
+}
+
+-(void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void * )contextInfo{
+    if(error){
+        UIAlertView * alert =[ [UIAlertView alloc]initWithTitle:@"Save failed" message:@"Failed to save image" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 
 
@@ -226,6 +191,7 @@
 	// Do any additional setup after loading the view.
     
     [self.text setDelegate:self];
+    
     self.displayingImage = YES;
     [self.text setAlpha:0];
 }
