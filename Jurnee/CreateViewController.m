@@ -97,16 +97,6 @@
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
-    /*
-    [UIView beginAnimations:@"flipView" context:nil];
-    [UIView setAnimationDuration:2];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.image cache:YES];
-    
-    [UIView commitAnimations];
-    */
-    
-    
     
     
     
