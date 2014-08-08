@@ -66,10 +66,14 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     NSLog(@"didFinishPickingMediaWithInfo");
-    
+    self.newMedia = YES;
    
     
     UIImage * image = info[UIImagePickerControllerEditedImage];
+    
+    
+    
+    
     
     if(image == nil){
         
@@ -79,13 +83,34 @@
             NSLog(@"Image is nil ");
         }
     }
+    
+    ALAssetsLibrary * library = [[ALAssetsLibrary alloc]init];
+    [library writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:^(NSURL * assetURL ,NSError * error){
+        if(error){
+            NSLog(@"error");
+            
+        }else{
+            NSLog(@"url %@",assetURL);
+        }
+    }];
+    
     self.image.image = image;
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+    if(self.newMedia){
+        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:finishedSavingWithError:contextInfo:), nil);
+    }
+    
 }
 
 
-
+-(void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void * )contextInfo{
+    if(error){
+        UIAlertView * alert =[ [UIAlertView alloc]initWithTitle:@"Save failed" message:@"Failed to save image" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
 
 
 - (void)viewDidLoad

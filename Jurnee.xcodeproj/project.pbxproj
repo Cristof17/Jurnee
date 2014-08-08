@@ -24,6 +24,15 @@
 		81B22A171993677A00C6FC4D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 81B22A151993677A00C6FC4D /* InfoPlist.strings */; };
 		81B22A191993677A00C6FC4D /* JurneeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B22A181993677A00C6FC4D /* JurneeTests.m */; };
 		81B22A27199373B200C6FC4D /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B22A26199373B200C6FC4D /* CreateViewController.m */; };
+		81B314621994B53E009352A8 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B314571994B53E009352A8 /* NSMutableArray+SWUtilityButtons.m */; };
+		81B314631994B53E009352A8 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B314591994B53E009352A8 /* SWCellScrollView.m */; };
+		81B314641994B53E009352A8 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B3145B1994B53E009352A8 /* SWLongPressGestureRecognizer.m */; };
+		81B314651994B53E009352A8 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B3145D1994B53E009352A8 /* SWTableViewCell.m */; };
+		81B314661994B53E009352A8 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B3145F1994B53E009352A8 /* SWUtilityButtonTapGestureRecognizer.m */; };
+		81B314671994B53E009352A8 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B314611994B53E009352A8 /* SWUtilityButtonView.m */; };
+		81B3146A1994B580009352A8 /* CustomViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B314691994B580009352A8 /* CustomViewCell.m */; };
+		81B3146D1994B87C009352A8 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B3146C1994B87C009352A8 /* facebook.png */; };
+		81B3146F1994BF81009352A8 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B3146E1994BF81009352A8 /* facebook@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +69,22 @@
 		81B22A181993677A00C6FC4D /* JurneeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JurneeTests.m; sourceTree = "<group>"; };
 		81B22A25199373B200C6FC4D /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
 		81B22A26199373B200C6FC4D /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
+		81B314561994B53E009352A8 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+SWUtilityButtons.h"; path = "../../SWTableViewCell/SWTableViewCell/SWTableViewCell/PodFiles/NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
+		81B314571994B53E009352A8 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+SWUtilityButtons.m"; path = "../../SWTableViewCell/SWTableViewCell/SWTableViewCell/PodFiles/NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
+		81B314581994B53E009352A8 /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWCellScrollView.h; path = ../../SWTableViewCell/SWTableViewCell/SWTableViewCell/PodFiles/SWCellScrollView.h; sourceTree = "<group>"; };
+		81B314591994B53E009352A8 /* SWCellScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWCellScrollView.m; path = ../../SWTableViewCell/SWTableViewCell/SWTableViewCell/PodFiles/SWCellScrollView.m; sourceTree = "<group>"; };
+		81B3145A1994B53E009352A8 /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWLongPressGestureRecognizer.h; path = ../../SWTableViewCell/SWTableViewCell/SWTableViewCell/PodFiles/SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
+		81B3145B1994B53E009352A8 /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWLongPressGestureRecognizer.m; path = ../../SWTableViewCell/SWTableViewCell/SWTableViewCell/PodFiles/SWLongPressGestureRecognizer.m; sourceTree = "<group>"; };
+		81B3145C1994B53E009352A8 /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWTableViewCell.h; path = ../../SWTableViewCell/SWTableViewCell/SWTableViewCell/PodFiles/SWTableViewCell.h; sourceTree = "<group>"; };
+		81B3145D1994B53E009352A8 /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWTableViewCell.m; path = ../../SWTableViewCell/SWTableViewCell/SWTableViewCell/PodFiles/SWTableViewCell.m; sourceTree = "<group>"; };
+		81B3145E1994B53E009352A8 /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWUtilityButtonTapGestureRecognizer.h; path = ../../SWTableViewCell/SWTableViewCell/SWTableViewCell/PodFiles/SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
+		81B3145F1994B53E009352A8 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWUtilityButtonTapGestureRecognizer.m; path = ../../SWTableViewCell/SWTableViewCell/SWTableViewCell/PodFiles/SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
+		81B314601994B53E009352A8 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWUtilityButtonView.h; path = ../../SWTableViewCell/SWTableViewCell/SWTableViewCell/PodFiles/SWUtilityButtonView.h; sourceTree = "<group>"; };
+		81B314611994B53E009352A8 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWUtilityButtonView.m; path = ../../SWTableViewCell/SWTableViewCell/SWTableViewCell/PodFiles/SWUtilityButtonView.m; sourceTree = "<group>"; };
+		81B314681994B580009352A8 /* CustomViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewCell.h; sourceTree = "<group>"; };
+		81B314691994B580009352A8 /* CustomViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewCell.m; sourceTree = "<group>"; };
+		81B3146C1994B87C009352A8 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../../facebook.png; sourceTree = "<group>"; };
+		81B3146E1994BF81009352A8 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook@2x.png"; path = "../../../Downloads/SwipeTableCell/SwipeTableCell/images/facebook@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +144,7 @@
 		81B229F01993677A00C6FC4D /* Jurnee */ = {
 			isa = PBXGroup;
 			children = (
+				81B3146B1994B66F009352A8 /* Swipe */,
 				81B229F91993677A00C6FC4D /* AppDelegate.h */,
 				81B229FA1993677A00C6FC4D /* AppDelegate.m */,
 				81B22A25199373B200C6FC4D /* CreateViewController.h */,
@@ -127,6 +153,8 @@
 				81B229FF1993677A00C6FC4D /* Main_iPad.storyboard */,
 				81B22A021993677A00C6FC4D /* ViewController.h */,
 				81B22A031993677A00C6FC4D /* ViewController.m */,
+				81B314681994B580009352A8 /* CustomViewCell.h */,
+				81B314691994B580009352A8 /* CustomViewCell.m */,
 				81B22A051993677A00C6FC4D /* Images.xcassets */,
 				81B229F11993677A00C6FC4D /* Supporting Files */,
 			);
@@ -161,6 +189,27 @@
 				81B22A151993677A00C6FC4D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		81B3146B1994B66F009352A8 /* Swipe */ = {
+			isa = PBXGroup;
+			children = (
+				81B314611994B53E009352A8 /* SWUtilityButtonView.m */,
+				81B314601994B53E009352A8 /* SWUtilityButtonView.h */,
+				81B3145F1994B53E009352A8 /* SWUtilityButtonTapGestureRecognizer.m */,
+				81B3145E1994B53E009352A8 /* SWUtilityButtonTapGestureRecognizer.h */,
+				81B3145D1994B53E009352A8 /* SWTableViewCell.m */,
+				81B3145C1994B53E009352A8 /* SWTableViewCell.h */,
+				81B3145B1994B53E009352A8 /* SWLongPressGestureRecognizer.m */,
+				81B3145A1994B53E009352A8 /* SWLongPressGestureRecognizer.h */,
+				81B314591994B53E009352A8 /* SWCellScrollView.m */,
+				81B314581994B53E009352A8 /* SWCellScrollView.h */,
+				81B314571994B53E009352A8 /* NSMutableArray+SWUtilityButtons.m */,
+				81B314561994B53E009352A8 /* NSMutableArray+SWUtilityButtons.h */,
+				81B3146C1994B87C009352A8 /* facebook.png */,
+				81B3146E1994BF81009352A8 /* facebook@2x.png */,
+			);
+			name = Swipe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +289,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81B22A011993677A00C6FC4D /* Main_iPad.storyboard in Resources */,
+				81B3146D1994B87C009352A8 /* facebook.png in Resources */,
+				81B3146F1994BF81009352A8 /* facebook@2x.png in Resources */,
 				81B22A061993677A00C6FC4D /* Images.xcassets in Resources */,
 				81B229FE1993677A00C6FC4D /* Main_iPhone.storyboard in Resources */,
 				81B229F51993677A00C6FC4D /* InfoPlist.strings in Resources */,
@@ -263,8 +314,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				81B22A27199373B200C6FC4D /* CreateViewController.m in Sources */,
+				81B314651994B53E009352A8 /* SWTableViewCell.m in Sources */,
+				81B314641994B53E009352A8 /* SWLongPressGestureRecognizer.m in Sources */,
+				81B314621994B53E009352A8 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				81B22A041993677A00C6FC4D /* ViewController.m in Sources */,
+				81B314631994B53E009352A8 /* SWCellScrollView.m in Sources */,
+				81B3146A1994B580009352A8 /* CustomViewCell.m in Sources */,
 				81B229FB1993677A00C6FC4D /* AppDelegate.m in Sources */,
+				81B314671994B53E009352A8 /* SWUtilityButtonView.m in Sources */,
+				81B314661994B53E009352A8 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				81B229F71993677A00C6FC4D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AssetsLibrary/AssetsLibrary.h"
 
 @interface CreateViewController : UIViewController
 <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
@@ -14,6 +15,7 @@
 
 @property (strong,nonatomic) IBOutlet UIImageView * image ;
 @property IBOutlet UITextView * text ;
+@property BOOL newMedia ;
 
 -(IBAction)takePhotoUsingCamera;
 -(IBAction)selectPhotoFromLibrary;

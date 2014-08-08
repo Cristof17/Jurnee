@@ -16,7 +16,7 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3 ;
+    return 100 ;
 }
 
 
@@ -25,21 +25,72 @@
     
     static NSString * TAG = @"TAG";
     
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:TAG];
+    CustomViewCell * cell = (CustomViewCell * )[self.tableView dequeueReusableCellWithIdentifier:TAG];
     
     if(cell == nil){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TAG];
+        cell = [[CustomViewCell alloc]init];
     }
-    cell.textLabel.text = @"Test ";
+    
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    NSMutableArray * rightUtilityButtons  = [NSMutableArray new];
+
+    UIImage * facebook_image = [UIImage imageNamed:@"facebook.png"];
+    UIColor * facebook_color = [UIColor colorWithRed:1.0f green:1.0f blue:0.35 alpha:0.6];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:facebook_color icon:facebook_image];
+    
+    
+    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:1.0f green:0.23f blue:0.188 alpha:1.0f] title:@"Delete"];
+    
+    cell.rightUtilityButtons  = rightUtilityButtons ;
+    cell .leftUtilityButtons = leftUtilityButtons ;
+    
+    cell.delegate = self;
+    
+    [cell.label setText:@"Yuhuu"];
+    cell.imageView.image = [UIImage imageNamed:@"default.png"];
     
     return cell;
 }
 
 
 
+-(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index{
+    switch (index) {
+        case 0:
+            NSLog(@"Logging to facebook");
+            [self postToFacebook:self];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+
+-(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index{
+    switch (index) {
+        case 0:
+            NSLog(@"Deleting....");
+            break;
+            
+        default:
+            break;
+    }
+}
+
+
+
+-(void)postToFacebook:(id)sender{
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [controller setInitialText:@"Post to Facebook "];
+        [controller addImage:[UIImage imageNamed:@"default.png"]];
+        [self presentViewController:controller animated:YES completion:NULL];
+    }
+}
 
 -(void)tableView:(UITableView * )tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"Row selected at position %d ",indexPath.row);
+    NSLog(@"Row selected at position %ld ",(long)indexPath.row);
     
 }
 
@@ -53,14 +104,6 @@
 {
     [super viewDidLoad];
     
-    NSMutableDictionary * rootObj = [NSMutableDictionary dictionaryWithCapacity:3];
-    NSDictionary * innerDict;
-    NSString * description;
-    
-    description = @"@Test Line ";
-    innerDict =[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"Name", nil] forKeys:[NSArray arrayWithObjects:@"Descriere", nil]];
-    
-    [rootObj setObject:innerDict forKey:@"TIUTLTUTUTU"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,3 +113,4 @@
 }
 
 @end
+

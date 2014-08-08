@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWTableViewCell.h"
+#import "CustomViewCell.h"
+#import <Social/Social.h>
 
-@interface ViewController : UIViewController
-
-
-<UITableViewDelegate,UITableViewDataSource>
+@interface ViewController : UIViewController <SWTableViewCellDelegate>
 
 
 @property IBOutlet UITableView * tableView ;
