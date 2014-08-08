@@ -14,11 +14,11 @@
 
 
 @property (strong,nonatomic) IBOutlet UIImageView * image ;
-@property IBOutlet UITextView * text ;
-@property BOOL newMedia ;
+@property (strong, nonatomic )IBOutlet UITextView * text ;
+@property BOOL displayingImage;
 
 -(IBAction)takePhotoUsingCamera;
 -(IBAction)selectPhotoFromLibrary;
-
+-(IBAction)rotate;
 
 @end
