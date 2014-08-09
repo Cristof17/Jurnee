@@ -18,6 +18,8 @@
 @property BOOL displayingImage;
 @property (nonatomic, strong ) NSArray * assets ;
 @property BOOL cleared;
+@property NSMutableArray * array ;
+@property BOOL delete_pressed ;
 
 -(IBAction)takePhotoUsingCamera;
 -(IBAction)selectPhotoFromLibrary;

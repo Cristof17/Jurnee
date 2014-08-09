@@ -42,14 +42,32 @@
 
 -(IBAction)clearFields{
     
+    NSLog(@"La intrare delete_pressed = %d ",self.delete_pressed);
+    
     if(self.displayingImage){
        self.image.image = [UIImage imageNamed:@"default.png"];
         self.displayingImage = YES;
+        
+        if(self.array.count >0 && !self.delete_pressed){
+            [self.array removeObjectAtIndex:self.array.count -1];
+            self.delete_pressed = YES;
+        }
+        
     }else{
+        
         [self animateBackwards];
         self.text.text =@"Enter Description";
         self.image.image  =[UIImage imageNamed:@"default.png"];
+        
+        if(self.array.count >0 && !self.delete_pressed){
+            [self.array removeObjectAtIndex:self.array.count -1];
+            self.delete_pressed = YES;
+        }
     }
+    
+    
+    NSLog(@"Dupa stergere self.delete_pressed = %d ",self.delete_pressed);
+    NSLog(@"Array-ul dupa stergere are %d",self.array.count);
 }
 
 
@@ -87,14 +105,21 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     
+   //getting image information
     
     if(info == nil){
         NSLog(@"Dictionary is nil ");
+    }else{
+        
+        NSURL * path = [info valueForKey:UIImagePickerControllerReferenceURL];
+        [self.array addObject:[path absoluteString]];
+        NSLog(@"Array-ul are %lu elemente ",(unsigned long)self.array.count);
     }
     
-    NSLog(@"Modification date  is  %@ ",[info valueForKey:NSFileSize]);
     
-  
+    NSLog(@"Modification date  is  %@ ",[info valueForKey:UIImagePickerControllerReferenceURL]);
+    
+    
     
     if(! self.displayingImage){
         [self animateBackwards];
@@ -142,7 +167,7 @@
     
     
 
-    
+     self.delete_pressed = NO;
 }
 
 -(void)animateBackwards
@@ -173,7 +198,6 @@
      
                     completion: ^(BOOL finished){
                         if(finished){
-                            
                             self.displayingImage = !self.displayingImage;
                         }
                     }];
@@ -201,7 +225,6 @@
      
                     completion: ^(BOOL finished){
                         if(finished){
-                            
                         }
                     }];
 }
@@ -222,12 +245,19 @@
     [self.text setDelegate:self];
 
     self.displayingImage = YES;
+    self.delete_pressed = NO;
     [self.text setAlpha:0];
     
     
     if(self.assets == nil){
         NSLog(@"Assets array is nil ");
     }
+    
+    
+    if(self.array == nil){
+        NSLog(@"Array is nil in CreateViewController ");
+    }
+        
     
 }
 

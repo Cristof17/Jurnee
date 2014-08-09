@@ -16,7 +16,19 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.assets.count ;
+    return self.array.count ;
+}
+
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+    
+    NSLog(@"Reloading data into table ");
+    
 }
 
 
@@ -49,9 +61,28 @@
     [cell.label setText:@"Yuhuu"];
     cell.imageView.image = [UIImage imageNamed:@"default.png"];
     
+    //Getting asset image using string from URL array modified by the CreateViewController
+    
+    
+    
+    [self.library assetForURL:[NSURL URLWithString:[self.array objectAtIndex:indexPath.row]]
+    
+    resultBlock:^(ALAsset * asset){
+        cell.imageView.image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage];
+        NSLog(@"Image loaded successfully ");
+        
+    }
+    failureBlock:^(NSError * error){
+        NSLog(@"An error occurred when loading image ");
+    }];
+    
+    
+   
+    
     
     ALAsset * asset_curr = self.assets[indexPath.row];
-    cell.imageView.image = [UIImage imageWithCGImage:[asset_curr thumbnail]];
+    
+//    cell.imageView.image = [UIImage imageWithCGImage:[asset_curr thumbnail]];
     
     
     return cell;
@@ -109,6 +140,15 @@
     
     self.link_de_verificat = @"assets-library://asset/asset.PNG?id=061D4825-C1BE-4B0F-9ADC-CAEBA1298161&ext=PNG";
     
+    if(self.library == nil){
+        self.library = [[ALAssetsLibrary alloc]init];
+    }
+    
+    NSLog(@"viewDidLoad");
+    
+    //Retrieving data from library and populate the TableView
+    
+    /*
     self.assets = [@[] mutableCopy];
     __block NSMutableArray *tmpAssets = [@[] mutableCopy];
     
@@ -130,9 +170,37 @@
     }failureBlock:^(NSError * error){
         NSLog(@"Error loading images in TableView :  %@",error);
     }];
+    */
+    
+    
+    //Instantiating array
+    
+    if(self.array == nil){
+        self.array = [[NSMutableArray alloc]init];
+    }
+    
     
     
 }
+
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if(self.array == nil){
+        NSLog(@"Array is nil , creating one");
+    }
+    
+    if( [segue.identifier isEqualToString:@"createSegue" ]){
+        NSLog(@"Passing the array ");
+        CreateViewController * destination = segue.destinationViewController;
+        destination.array = self.array;
+    }
+    
+}
+
+
+
 
 
 +(ALAssetsLibrary * )defaultAssetslibrary{

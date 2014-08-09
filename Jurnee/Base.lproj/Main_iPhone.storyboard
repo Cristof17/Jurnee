@@ -84,7 +84,7 @@
                     <navigationItem key="navigationItem" id="Nw1-tW-iTY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vsn-ct-81j">
                             <connections>
-                                <segue destination="EuY-Rq-p1t" kind="push" id="eRC-uP-KeV"/>
+                                <segue destination="EuY-Rq-p1t" kind="push" identifier="createSegue" id="eRC-uP-KeV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
