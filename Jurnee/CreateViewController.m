@@ -56,7 +56,7 @@
     }else{
         
         [self animateBackwards];
-        self.text.text =@"Enter Description";
+        self.text.text =@"Description";
         self.image.image  =[UIImage imageNamed:@"default.png"];
         
         if(self.array.count >0 && !self.delete_pressed){
@@ -67,7 +67,7 @@
     
     
     NSLog(@"Dupa stergere self.delete_pressed = %d ",self.delete_pressed);
-    NSLog(@"Array-ul dupa stergere are %d",self.array.count);
+    NSLog(@"Array-ul dupa stergere are %lu",(unsigned long)self.array.count);
 }
 
 
@@ -105,6 +105,9 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     
+    UIImage  * image ;
+    
+    
    //getting image information
     
     if(info == nil){
@@ -112,12 +115,41 @@
     }else{
         
         NSURL * path = [info valueForKey:UIImagePickerControllerReferenceURL];
-        [self.array addObject:[path absoluteString]];
+        
+        
+        if(path != nil){
+            
+            [self.array addObject:[path absoluteString]];
+            
+        }else{
+            
+             path = [info valueForKey:UIImagePickerControllerMediaURL];
+            
+            if(path == nil){
+                
+                
+                NSLog(@"Path of the image is nil ");
+                
+                image = info[UIImagePickerControllerOriginalImage];
+                
+                
+                ALAssetsLibrary * library = [[ALAssetsLibrary alloc]init];
+                [library writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:^(NSURL *    assetURL ,NSError * error){
+                    if(error){
+                        NSLog(@"error");
+                        
+                    }else{
+                        [self.array addObject:[assetURL absoluteString]];
+                        NSLog(@"url of captured image %@",assetURL);
+                    }
+                }];
+            }
+        }
         NSLog(@"Array-ul are %lu elemente ",(unsigned long)self.array.count);
     }
     
     
-    NSLog(@"Modification date  is  %@ ",[info valueForKey:UIImagePickerControllerReferenceURL]);
+    NSLog(@" URL is  %@ ",[info valueForKey:UIImagePickerControllerReferenceURL]);
     
     
     
@@ -126,34 +158,15 @@
     }
     
     
-    NSLog(@"didFinishPickingMediaWithInfo");
-   
-    
-    UIImage * image = info[UIImagePickerControllerEditedImage];
-    
-    
-    
-    
     
     if(image == nil){
         
-        image = info[UIImagePickerControllerOriginalImage];
+        image = [info valueForKey:UIImagePickerControllerOriginalImage];
         
         if(image == nil){
             NSLog(@"Image is nil ");
         }
     }
-   /*
-    ALAssetsLibrary * library = [[ALAssetsLibrary alloc]init];
-    [library writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:^(NSURL * assetURL ,NSError * error){
-        if(error){
-            NSLog(@"error");
-            
-        }else{
-            NSLog(@"url %@",assetURL);
-        }
-    }];
-    */
     
     self.image.image = image;
     
@@ -179,12 +192,10 @@
                         [UIView animateWithDuration:2 animations:^(void){
                             
                             if(self.displayingImage){
-                                NSLog(@"Setting image alpha to 0 cu displaying %d",self.displayingImage);
                                 
                                 [self.image setAlpha:0];
                                 
                             }else{
-                                NSLog(@"Setting image alpha to 1 cu displaying %d",self.displayingImage);
                                 
                                 [self.image setAlpha:1];
                             }
@@ -210,12 +221,10 @@
                         
                         [UIView animateWithDuration:2 animations:^(void){
                             if(self.displayingImage){
-                                NSLog(@"Setting text alpha to 1 cu displaying %d",self.displayingImage);
                                 
                                 [self.text setAlpha:1];
                                 
                             }else{
-                                NSLog(@"Setting text alpha to 0 cu displaying %d",self.displayingImage);
                                 
                                 [self.text setAlpha:0];
                             }

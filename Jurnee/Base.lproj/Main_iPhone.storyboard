@@ -112,14 +112,14 @@
                                 <rect key="frame" x="0.0" y="84" width="320" height="305"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <textView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter Description" translatesAutoresizingMaskIntoConstraints="NO" id="vE4-5z-acv">
+                            <textView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="vE4-5z-acv">
                                 <rect key="frame" x="11" y="84" width="298" height="305"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93291440217391308" green="0.93291440217391308" blue="0.93291440217391308" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="0.66526578430000005" blue="0.73720577040000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
-                                <color key="textColor" red="0.31291664860000001" green="0.70110818610000003" blue="0.63075231040000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="15"/>
+                                <color key="textColor" red="0.22708463235444454" green="0.50968070652173914" blue="0.45523324686663269" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gcu-yT-Rym">

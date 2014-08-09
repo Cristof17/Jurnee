@@ -107,6 +107,10 @@
     switch (index) {
         case 0:
             NSLog(@"Deleting....");
+            [self.array removeObjectAtIndex:index];
+            [self.tableView reloadData ];
+            
+            
             break;
             
         default:
