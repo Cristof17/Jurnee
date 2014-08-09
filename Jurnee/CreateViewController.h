@@ -16,8 +16,11 @@
 @property (strong,nonatomic) IBOutlet UIImageView * image ;
 @property (strong, nonatomic )IBOutlet UITextView * text ;
 @property BOOL displayingImage;
+@property (nonatomic, strong ) NSArray * assets ;
+@property BOOL cleared;
 
 -(IBAction)takePhotoUsingCamera;
 -(IBAction)selectPhotoFromLibrary;
+-(IBAction)clearFields;
 
 @end

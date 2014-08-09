@@ -33,6 +33,7 @@
 		81B3146A1994B580009352A8 /* CustomViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B314691994B580009352A8 /* CustomViewCell.m */; };
 		81B3146D1994B87C009352A8 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B3146C1994B87C009352A8 /* facebook.png */; };
 		81B3146F1994BF81009352A8 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B3146E1994BF81009352A8 /* facebook@2x.png */; };
+		81CC059E1996057D00654D79 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81CC059D1996057D00654D79 /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		81B314691994B580009352A8 /* CustomViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewCell.m; sourceTree = "<group>"; };
 		81B3146C1994B87C009352A8 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../../facebook.png; sourceTree = "<group>"; };
 		81B3146E1994BF81009352A8 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook@2x.png"; path = "../../../Downloads/SwipeTableCell/SwipeTableCell/images/facebook@2x.png"; sourceTree = "<group>"; };
+		81CC059D1996057D00654D79 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81CC059E1996057D00654D79 /* AssetsLibrary.framework in Frameworks */,
 				81B229ED1993677A00C6FC4D /* CoreGraphics.framework in Frameworks */,
 				81B229EF1993677A00C6FC4D /* UIKit.framework in Frameworks */,
 				81B229EB1993677A00C6FC4D /* Foundation.framework in Frameworks */,
@@ -133,6 +136,7 @@
 		81B229E91993677A00C6FC4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				81CC059D1996057D00654D79 /* AssetsLibrary.framework */,
 				81B229EA1993677A00C6FC4D /* Foundation.framework */,
 				81B229EC1993677A00C6FC4D /* CoreGraphics.framework */,
 				81B229EE1993677A00C6FC4D /* UIKit.framework */,

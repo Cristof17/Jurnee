@@ -34,11 +34,27 @@
     return YES;
 }
 
+
+
+-(IBAction)clearFields{
+    
+    if(self.displayingImage){
+       self.image.image = [UIImage imageNamed:@"default.png"];
+        self.displayingImage = YES;
+    }else{
+        [self animateBackwards];
+        self.text.text =@"";
+        self.image.image  =[UIImage imageNamed:@"default.png"];
+    }
+}
+
+
+
 -(IBAction)selectPhotoFromLibrary{
     
     UIImagePickerController * picker = [[UIImagePickerController alloc]init];
     picker.delegate = self;
-    picker.allowsEditing = YES ;
+    picker.allowsEditing = NO ;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentViewController:picker animated:YES completion:NULL];
@@ -64,6 +80,12 @@
 
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    
+    
+    if(! self.displayingImage){
+        [self animateBackwards];
+    }
+    
     
     NSLog(@"didFinishPickingMediaWithInfo");
    
@@ -98,9 +120,11 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
     
+    if(self.displayingImage){
+        
+        [self performSelector:@selector(animateBackwards) withObject:nil afterDelay:1];
+    }
     
-    
-    [self performSelector:@selector(animateBackwards) withObject:nil afterDelay:1];
     
 
     
@@ -181,9 +205,15 @@
 	// Do any additional setup after loading the view.
     
     [self.text setDelegate:self];
-    
+
     self.displayingImage = YES;
     [self.text setAlpha:0];
+    
+    
+    if(self.assets == nil){
+        NSLog(@"Assets array is nil ");
+    }
+    
 }
 
 

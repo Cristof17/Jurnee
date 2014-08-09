@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #include "SWTableViewCell.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface CustomViewCell : SWTableViewCell
 <SWTableViewCellDelegate>

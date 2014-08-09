@@ -112,7 +112,8 @@
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.20000000000000001" contentMode="scaleToFill" fixedFrame="YES" text="Enter Description" translatesAutoresizingMaskIntoConstraints="NO" id="vE4-5z-acv">
                                 <rect key="frame" x="0.0" y="84" width="320" height="305"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.99803757060229514" green="1" blue="0.99216238580711447" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.078118605536275573" green="0.078592051630434812" blue="0.077645159442116321" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -125,10 +126,16 @@
                                             <action selector="takePhotoUsingCamera" destination="EuY-Rq-p1t" id="G1M-Ux-WaJ"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="238" style="plain" systemItem="fixedSpace" id="Nvy-Tf-BH8"/>
+                                    <barButtonItem width="32" style="plain" systemItem="fixedSpace" id="Nvy-Tf-BH8"/>
                                     <barButtonItem systemItem="search" id="rKY-PM-8uX">
                                         <connections>
                                             <action selector="selectPhotoFromLibrary" destination="EuY-Rq-p1t" id="yKH-AX-ij9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="172" style="plain" systemItem="fixedSpace" id="nBr-La-six"/>
+                                    <barButtonItem systemItem="trash" id="opt-gr-ft4">
+                                        <connections>
+                                            <action selector="clearFields" destination="EuY-Rq-p1t" id="XQJ-Nd-Ox9"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

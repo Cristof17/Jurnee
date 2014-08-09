@@ -10,12 +10,13 @@
 #import "SWTableViewCell.h"
 #import "CustomViewCell.h"
 #import <Social/Social.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface ViewController : UIViewController <SWTableViewCellDelegate>
 
 
 @property IBOutlet UITableView * tableView ;
-
+@property NSArray * assets;
 
 
 @end

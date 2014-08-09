@@ -16,7 +16,7 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 100 ;
+    return self.assets.count ;
 }
 
 
@@ -48,6 +48,11 @@
     
     [cell.label setText:@"Yuhuu"];
     cell.imageView.image = [UIImage imageNamed:@"default.png"];
+    
+    
+    ALAsset * asset_curr = self.assets[indexPath.row];
+    cell.imageView.image = [UIImage imageWithCGImage:[asset_curr thumbnail]];
+    
     
     return cell;
 }
@@ -97,14 +102,44 @@
 
 
 
-
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.assets = [@[] mutableCopy];
+    __block NSMutableArray *tmpAssets = [@[] mutableCopy];
+    
+    ALAssetsLibrary * assetsLibrary = [ViewController defaultAssetslibrary];
+    
+    [assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group , BOOL *  stop){
+        [group enumerateAssetsUsingBlock:^(ALAsset *result , NSUInteger index , BOOL * stop){
+            if(result){
+                [tmpAssets addObject:result];
+            }
+        }];
+        
+        self.assets = tmpAssets;
+        
+        NSLog(@"Library has  ... %d ",[self.assets count]);
+        
+        [self.tableView reloadData ];
+    }failureBlock:^(NSError * error){
+        NSLog(@"Error loading images in TableView :  %@",error);
+    }];
+    
+    
 }
+
+
++(ALAssetsLibrary * )defaultAssetslibrary{
+    static dispatch_once_t pred = 0;
+    static ALAssetsLibrary * library = nil;
+    dispatch_once (&pred ,^{
+        library = [[ALAssetsLibrary alloc]init];
+    });
+    return library;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
