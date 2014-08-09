@@ -104,7 +104,10 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
+    
+    self.link_de_verificat = @"assets-library://asset/asset.PNG?id=061D4825-C1BE-4B0F-9ADC-CAEBA1298161&ext=PNG";
     
     self.assets = [@[] mutableCopy];
     __block NSMutableArray *tmpAssets = [@[] mutableCopy];
@@ -115,6 +118,7 @@
         [group enumerateAssetsUsingBlock:^(ALAsset *result , NSUInteger index , BOOL * stop){
             if(result){
                 [tmpAssets addObject:result];
+              
             }
         }];
         

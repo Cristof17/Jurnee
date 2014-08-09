@@ -17,6 +17,6 @@
 
 @property IBOutlet UITableView * tableView ;
 @property NSArray * assets;
-
+@property NSString * link_de_verificat ;
 
 @end

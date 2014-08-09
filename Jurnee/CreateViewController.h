@@ -10,11 +10,11 @@
 #import "AssetsLibrary/AssetsLibrary.h"
 
 @interface CreateViewController : UIViewController
-<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
+<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
 
 
-@property (strong,nonatomic) IBOutlet UIImageView * image ;
-@property (strong, nonatomic )IBOutlet UITextView * text ;
+@property IBOutlet UIImageView * image ;
+@property IBOutlet UITextView * text ;
 @property BOOL displayingImage;
 @property (nonatomic, strong ) NSArray * assets ;
 @property BOOL cleared;
@@ -22,5 +22,5 @@
 -(IBAction)takePhotoUsingCamera;
 -(IBAction)selectPhotoFromLibrary;
 -(IBAction)clearFields;
-
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
 @end

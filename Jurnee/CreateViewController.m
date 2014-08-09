@@ -29,9 +29,13 @@
 }
 
 
--(BOOL)textFieldShouldReturn:(UITextField * )textField{
-    [textField resignFirstResponder];
-    return YES;
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if([text isEqualToString:@"\n"]){
+        [textView resignFirstResponder];
+        return NO;
+    }
+        
+        return YES;
 }
 
 
@@ -43,7 +47,7 @@
         self.displayingImage = YES;
     }else{
         [self animateBackwards];
-        self.text.text =@"";
+        self.text.text =@"Enter Description";
         self.image.image  =[UIImage imageNamed:@"default.png"];
     }
 }
@@ -79,8 +83,18 @@
 
 
 
+
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
+    
+    
+    if(info == nil){
+        NSLog(@"Dictionary is nil ");
+    }
+    
+    NSLog(@"Modification date  is  %@ ",[info valueForKey:NSFileSize]);
+    
+  
     
     if(! self.displayingImage){
         [self animateBackwards];
@@ -104,7 +118,7 @@
             NSLog(@"Image is nil ");
         }
     }
-    
+   /*
     ALAssetsLibrary * library = [[ALAssetsLibrary alloc]init];
     [library writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:^(NSURL * assetURL ,NSError * error){
         if(error){
@@ -114,6 +128,7 @@
             NSLog(@"url %@",assetURL);
         }
     }];
+    */
     
     self.image.image = image;
     

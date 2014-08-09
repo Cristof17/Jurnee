@@ -7,8 +7,10 @@
         <!--Navigation Controller-->
         <scene sceneID="3KG-SB-QcS">
             <objects>
-                <navigationController definesPresentationContext="YES" id="wUX-1J-h54" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" modalTransitionStyle="flipHorizontal" id="wUX-1J-h54" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pGq-jv-gjX">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -46,6 +48,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nH9-pU-Uxa">
                                                     <rect key="frame" x="20" y="6" width="58" height="58"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <color key="backgroundColor" red="0.99803757059999998" green="1" blue="0.99216238580000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="58" id="Ih5-oH-jWc"/>
                                                     </constraints>
@@ -109,13 +112,15 @@
                                 <rect key="frame" x="0.0" y="84" width="320" height="305"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.20000000000000001" contentMode="scaleToFill" fixedFrame="YES" text="Enter Description" translatesAutoresizingMaskIntoConstraints="NO" id="vE4-5z-acv">
-                                <rect key="frame" x="0.0" y="84" width="320" height="305"/>
+                            <textView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter Description" translatesAutoresizingMaskIntoConstraints="NO" id="vE4-5z-acv">
+                                <rect key="frame" x="11" y="84" width="298" height="305"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.078118605536275573" green="0.078592051630434812" blue="0.077645159442116321" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <color key="backgroundColor" red="0.93291440217391308" green="0.93291440217391308" blue="0.93291440217391308" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="0.66526578430000005" blue="0.73720577040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <color key="textColor" red="0.31291664860000001" green="0.70110818610000003" blue="0.63075231040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gcu-yT-Rym">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
@@ -139,10 +144,12 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="tintColor" red="0.047279237990553336" green="0.00060984911907779882" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.31291664860000001" green="0.70110818610000003" blue="0.63075231040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.43029127414975032" green="0.99138795792722578" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="UyC-ZM-old"/>
                     <connections>
