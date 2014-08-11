@@ -20,7 +20,7 @@
 
 
 @property IBOutlet UITableView * tableView ;
-@property IBOutlet UIButton * sidebarButton;
+@property (nonatomic) IBOutlet UIBarButtonItem* revealButtonItem;
 @property NSArray * assets;
 @property NSString * link_de_verificat ;
 @property NSMutableArray * array ;

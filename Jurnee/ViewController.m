@@ -141,7 +141,10 @@
 {
     
     [super viewDidLoad];
-    
+    [self.revealButtonItem setTarget:self.revealViewController];
+    [self.revealButtonItem setAction: @selector( revealToggle: )];
+    [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+
     
     if(self.library == nil){
         self.library = [[ALAssetsLibrary alloc]init];
@@ -153,8 +156,8 @@
     
     //setting up the sliding menu button
     
-    self.sidebarButton.target = self.revealViewController;
-    self.sidebarButton.action = @selector(revealToggle:);
+    
+    //....
     
     //Accessing the database
     

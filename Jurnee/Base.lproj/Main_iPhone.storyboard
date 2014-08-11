@@ -130,16 +130,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Nw1-tW-iTY">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="2xZ-Fj-oYb">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="m8C-8x-xNp">
-                                <rect key="frame" x="16" y="11" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="UsC-EN-ixH"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vsn-ct-81j">
                             <connections>
                                 <segue destination="EuY-Rq-p1t" kind="push" identifier="createSegue" id="eRC-uP-KeV"/>
@@ -147,13 +138,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="sidebarButton" destination="m8C-8x-xNp" id="3vE-Sw-hcb"/>
+                        <outlet property="revealButtonItem" destination="UsC-EN-ixH" id="6wD-La-K0U"/>
                         <outlet property="tableView" destination="0IB-Ck-B76" id="yeZ-s8-U3N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zWF-hW-RmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1826" y="-596"/>
+            <point key="canvasLocation" x="1834" y="-596"/>
         </scene>
         <!--Create View Controller-->
         <scene sceneID="Muf-7X-HPn">
