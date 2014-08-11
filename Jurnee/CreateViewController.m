@@ -84,6 +84,38 @@
 
 
 
+-(NSInteger) getYear{
+    
+    
+    NSDate * data = [NSDate date];
+    NSCalendar * calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents * components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:data];
+    NSLog(@"Year is %d ",[components year] );
+    return [components year];
+}
+
+-(NSInteger) getMonth{
+    
+    
+    NSDate * data = [NSDate date];
+    NSCalendar * calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents * components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:data];;\
+    NSLog(@"Month is %d ",[components month] );
+    return [components month];
+}
+
+
+-(NSInteger) getDay{
+    
+    
+    NSDate * data = [NSDate date];
+    NSCalendar * calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents * components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:data];;
+    NSLog(@"Day is %d ",[components day] );
+    return [components day];
+}
+
+
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
@@ -110,26 +142,25 @@
     
    //getting image information
     
+    
+    
+    
     if(info == nil){
         NSLog(@"Dictionary is nil ");
-    }else{
         
+    }else{
         NSURL * path = [info valueForKey:UIImagePickerControllerReferenceURL];
         
-        
         if(path != nil){
-            
+            NSLog(@"Inserting library image path into database ");
             [self.array addObject:[path absoluteString]];
-            
+            [self insertInDatabase:[path absoluteString] year:[self getYear] month:[self getMonth] day:[self getDay]];
         }else{
-            
              path = [info valueForKey:UIImagePickerControllerMediaURL];
             
             if(path == nil){
-                
-                
+    
                 NSLog(@"Path of the image is nil ");
-                
                 image = info[UIImagePickerControllerOriginalImage];
                 
                 
@@ -140,7 +171,8 @@
                         
                     }else{
                         [self.array addObject:[assetURL absoluteString]];
-                        NSLog(@"url of captured image %@",assetURL);
+                        [self insertInDatabase:[assetURL absoluteString] year:[self getYear] month:[self getMonth] day:[self getDay]];
+                        NSLog(@"Inserting camera image path into database ");
                     }
                 }];
             }
@@ -148,16 +180,9 @@
         NSLog(@"Array-ul are %lu elemente ",(unsigned long)self.array.count);
     }
     
-    
-    NSLog(@" URL is  %@ ",[info valueForKey:UIImagePickerControllerReferenceURL]);
-    
-    
-    
     if(! self.displayingImage){
         [self animateBackwards];
     }
-    
-    
     
     if(image == nil){
         
@@ -172,16 +197,19 @@
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
-    
     if(self.displayingImage){
         
         [self performSelector:@selector(animateBackwards) withObject:nil afterDelay:1];
     }
     
-    
-
      self.delete_pressed = NO;
+    
+    
 }
+
+
+
+
 
 -(void)animateBackwards
 {
@@ -237,6 +265,14 @@
                         }
                     }];
 }
+
+
+
+-(void)insertInDatabase:(NSString *)path year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;{
+    NSLog(@"Inserting into database %@ %d %d %d ",path,year,month,day);
+    [self.db executeUpdate:@"insert into fields(id, path ,year,month,day) values(?,?,?,?)",path,year,month,day];
+}
+
 
 -(void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void * )contextInfo{
     if(error){

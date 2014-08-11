@@ -142,13 +142,41 @@
     
     [super viewDidLoad];
     
-    self.link_de_verificat = @"assets-library://asset/asset.PNG?id=061D4825-C1BE-4B0F-9ADC-CAEBA1298161&ext=PNG";
     
     if(self.library == nil){
         self.library = [[ALAssetsLibrary alloc]init];
     }
     
     NSLog(@"viewDidLoad");
+    
+    
+    
+    //setting up the sliding menu button
+    
+    self.sidebarButton.target = self.revealViewController;
+    self.sidebarButton.action = @selector(revealToggle:);
+    
+    //Accessing the database
+    
+    
+    if(self.db == nil){
+        self.paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        self.docsPath = [self.paths  objectAtIndex:0];
+        self.path   = [self.docsPath stringByAppendingString:@"/jurnee.sqlite"];
+    
+        self.db = [FMDatabase databaseWithPath:self.path];
+    }
+    
+    
+    if(![self.db open]){
+        return;
+        NSLog(@"Cannot open database ");
+        [self.db executeUpdate:@"create table fields(id int primary key , path text , int year ,int month , int day "];
+    }
+    
+    
+                     
+    
     
     //Retrieving data from library and populate the TableView
     
@@ -199,6 +227,7 @@
         NSLog(@"Passing the array ");
         CreateViewController * destination = segue.destinationViewController;
         destination.array = self.array;
+        destination.db = self.db;
     }
     
 }

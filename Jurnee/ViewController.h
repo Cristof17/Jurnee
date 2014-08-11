@@ -12,15 +12,23 @@
 #import <Social/Social.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "CreateViewController.h"
+#import "FMDatabase.h"
+#import "SWRevealViewController.h"
+
 
 @interface ViewController : UIViewController <SWTableViewCellDelegate>
 
 
 @property IBOutlet UITableView * tableView ;
+@property IBOutlet UIButton * sidebarButton;
 @property NSArray * assets;
 @property NSString * link_de_verificat ;
 @property NSMutableArray * array ;
 @property ALAssetsLibrary * library ;
+@property NSArray * paths ;
+@property NSString * docsPath ;
+@property NSString * path ;
+@property FMDatabase * db;
 
 
 @end

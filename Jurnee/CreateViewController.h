@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AssetsLibrary/AssetsLibrary.h"
+#import "FMDatabase.h"
 
 @interface CreateViewController : UIViewController
 <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
@@ -20,9 +21,14 @@
 @property BOOL cleared;
 @property NSMutableArray * array ;
 @property BOOL delete_pressed ;
+@property FMDatabase * db;
 
 -(IBAction)takePhotoUsingCamera;
 -(IBAction)selectPhotoFromLibrary;
 -(IBAction)clearFields;
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
+-(NSInteger)getYear;
+-(NSInteger)getMonth;
+-(NSInteger)getDay;
+-(void)insertInDatabase:(NSString *)path year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 @end

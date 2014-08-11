@@ -33,6 +33,13 @@
 		81B3146A1994B580009352A8 /* CustomViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B314691994B580009352A8 /* CustomViewCell.m */; };
 		81B3146D1994B87C009352A8 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B3146C1994B87C009352A8 /* facebook.png */; };
 		81B3146F1994BF81009352A8 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B3146E1994BF81009352A8 /* facebook@2x.png */; };
+		81BDF6FC1998E18F00F7E522 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BDF6F21998E18F00F7E522 /* FMDatabase.m */; };
+		81BDF6FD1998E18F00F7E522 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BDF6F41998E18F00F7E522 /* FMDatabaseAdditions.m */; };
+		81BDF6FE1998E18F00F7E522 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BDF6F61998E18F00F7E522 /* FMDatabasePool.m */; };
+		81BDF6FF1998E18F00F7E522 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BDF6F81998E18F00F7E522 /* FMDatabaseQueue.m */; };
+		81BDF7001998E18F00F7E522 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BDF6FB1998E18F00F7E522 /* FMResultSet.m */; };
+		81BDF7021998E51200F7E522 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BDF7011998E51200F7E522 /* libsqlite3.0.dylib */; };
+		81BDF7051998FC9600F7E522 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BDF7041998FC9600F7E522 /* SWRevealViewController.m */; };
 		81CC059E1996057D00654D79 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81CC059D1996057D00654D79 /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +93,20 @@
 		81B314691994B580009352A8 /* CustomViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewCell.m; sourceTree = "<group>"; };
 		81B3146C1994B87C009352A8 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../../facebook.png; sourceTree = "<group>"; };
 		81B3146E1994BF81009352A8 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook@2x.png"; path = "../../../Downloads/SwipeTableCell/SwipeTableCell/images/facebook@2x.png"; sourceTree = "<group>"; };
+		81BDF6F11998E18F00F7E522 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = ../../fmdb/src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		81BDF6F21998E18F00F7E522 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = ../../fmdb/src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
+		81BDF6F31998E18F00F7E522 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = ../../fmdb/src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		81BDF6F41998E18F00F7E522 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = ../../fmdb/src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		81BDF6F51998E18F00F7E522 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = ../../fmdb/src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
+		81BDF6F61998E18F00F7E522 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = ../../fmdb/src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
+		81BDF6F71998E18F00F7E522 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = ../../fmdb/src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		81BDF6F81998E18F00F7E522 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = ../../fmdb/src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		81BDF6F91998E18F00F7E522 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = ../../fmdb/src/fmdb/FMDB.h; sourceTree = "<group>"; };
+		81BDF6FA1998E18F00F7E522 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = ../../fmdb/src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
+		81BDF6FB1998E18F00F7E522 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = ../../fmdb/src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
+		81BDF7011998E51200F7E522 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		81BDF7031998FC9600F7E522 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ../../SWRevealViewController/SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
+		81BDF7041998FC9600F7E522 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ../../SWRevealViewController/SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		81CC059D1996057D00654D79 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -94,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81BDF7021998E51200F7E522 /* libsqlite3.0.dylib in Frameworks */,
 				81CC059E1996057D00654D79 /* AssetsLibrary.framework in Frameworks */,
 				81B229ED1993677A00C6FC4D /* CoreGraphics.framework in Frameworks */,
 				81B229EF1993677A00C6FC4D /* UIKit.framework in Frameworks */,
@@ -136,6 +158,7 @@
 		81B229E91993677A00C6FC4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				81BDF7011998E51200F7E522 /* libsqlite3.0.dylib */,
 				81CC059D1996057D00654D79 /* AssetsLibrary.framework */,
 				81B229EA1993677A00C6FC4D /* Foundation.framework */,
 				81B229EC1993677A00C6FC4D /* CoreGraphics.framework */,
@@ -148,6 +171,8 @@
 		81B229F01993677A00C6FC4D /* Jurnee */ = {
 			isa = PBXGroup;
 			children = (
+				81BDF7071998FD1500F7E522 /* fmdb */,
+				81BDF7061998FCFB00F7E522 /* SWRevealViewController */,
 				81B3146B1994B66F009352A8 /* Swipe */,
 				81B229F91993677A00C6FC4D /* AppDelegate.h */,
 				81B229FA1993677A00C6FC4D /* AppDelegate.m */,
@@ -214,6 +239,33 @@
 				81B3146E1994BF81009352A8 /* facebook@2x.png */,
 			);
 			name = Swipe;
+			sourceTree = "<group>";
+		};
+		81BDF7061998FCFB00F7E522 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				81BDF7031998FC9600F7E522 /* SWRevealViewController.h */,
+				81BDF7041998FC9600F7E522 /* SWRevealViewController.m */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		81BDF7071998FD1500F7E522 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				81BDF6F11998E18F00F7E522 /* FMDatabase.h */,
+				81BDF6F21998E18F00F7E522 /* FMDatabase.m */,
+				81BDF6F31998E18F00F7E522 /* FMDatabaseAdditions.h */,
+				81BDF6F41998E18F00F7E522 /* FMDatabaseAdditions.m */,
+				81BDF6F51998E18F00F7E522 /* FMDatabasePool.h */,
+				81BDF6F61998E18F00F7E522 /* FMDatabasePool.m */,
+				81BDF6F71998E18F00F7E522 /* FMDatabaseQueue.h */,
+				81BDF6F81998E18F00F7E522 /* FMDatabaseQueue.m */,
+				81BDF6F91998E18F00F7E522 /* FMDB.h */,
+				81BDF6FA1998E18F00F7E522 /* FMResultSet.h */,
+				81BDF6FB1998E18F00F7E522 /* FMResultSet.m */,
+			);
+			name = fmdb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,12 +372,18 @@
 				81B22A27199373B200C6FC4D /* CreateViewController.m in Sources */,
 				81B314651994B53E009352A8 /* SWTableViewCell.m in Sources */,
 				81B314641994B53E009352A8 /* SWLongPressGestureRecognizer.m in Sources */,
+				81BDF6FC1998E18F00F7E522 /* FMDatabase.m in Sources */,
 				81B314621994B53E009352A8 /* NSMutableArray+SWUtilityButtons.m in Sources */,
+				81BDF6FF1998E18F00F7E522 /* FMDatabaseQueue.m in Sources */,
+				81BDF7001998E18F00F7E522 /* FMResultSet.m in Sources */,
 				81B22A041993677A00C6FC4D /* ViewController.m in Sources */,
 				81B314631994B53E009352A8 /* SWCellScrollView.m in Sources */,
 				81B3146A1994B580009352A8 /* CustomViewCell.m in Sources */,
+				81BDF6FD1998E18F00F7E522 /* FMDatabaseAdditions.m in Sources */,
+				81BDF7051998FC9600F7E522 /* SWRevealViewController.m in Sources */,
 				81B229FB1993677A00C6FC4D /* AppDelegate.m in Sources */,
 				81B314671994B53E009352A8 /* SWUtilityButtonView.m in Sources */,
+				81BDF6FE1998E18F00F7E522 /* FMDatabasePool.m in Sources */,
 				81B314661994B53E009352A8 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				81B229F71993677A00C6FC4D /* main.m in Sources */,
 			);
