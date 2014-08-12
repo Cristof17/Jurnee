@@ -14,7 +14,7 @@
 #import "CreateViewController.h"
 #import "FMDatabase.h"
 #import "SWRevealViewController.h"
-
+#import "Database.h"
 
 @interface ViewController : UIViewController <SWTableViewCellDelegate>
 
@@ -29,6 +29,7 @@
 @property NSString * docsPath ;
 @property NSString * path ;
 @property FMDatabase * db;
+@property FMResultSet * result ;
 
 
 @end

@@ -22,13 +22,18 @@
 @property NSMutableArray * array ;
 @property BOOL delete_pressed ;
 @property FMDatabase * db;
+@property NSURL * path ;
+@property NSString * description;
 
 -(IBAction)takePhotoUsingCamera;
 -(IBAction)selectPhotoFromLibrary;
+-(IBAction)goBack:(id)sender;
+
 -(IBAction)clearFields;
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
 -(NSInteger)getYear;
 -(NSInteger)getMonth;
 -(NSInteger)getDay;
--(void)insertInDatabase:(NSString *)path year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
+-(void)insertInDatabase:(NSString *)path description:(NSString *)description year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
+
 @end

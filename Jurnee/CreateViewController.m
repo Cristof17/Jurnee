@@ -43,6 +43,8 @@
 -(IBAction)clearFields{
     
     NSLog(@"La intrare delete_pressed = %d ",self.delete_pressed);
+    self.path = nil;
+    self.description = nil;
     
     if(self.displayingImage){
        self.image.image = [UIImage imageNamed:@"default.png"];
@@ -149,16 +151,17 @@
         NSLog(@"Dictionary is nil ");
         
     }else{
-        NSURL * path = [info valueForKey:UIImagePickerControllerReferenceURL];
+       self.path = [info valueForKey:UIImagePickerControllerReferenceURL];
         
-        if(path != nil){
-            NSLog(@"Inserting library image path into database ");
-            [self.array addObject:[path absoluteString]];
-            [self insertInDatabase:[path absoluteString] year:[self getYear] month:[self getMonth] day:[self getDay]];
-        }else{
-             path = [info valueForKey:UIImagePickerControllerMediaURL];
+        if(self.path != nil){
             
-            if(path == nil){
+            NSLog(@"Got the path from library ");
+            [self.array addObject:[self.path absoluteString]];       
+            
+        }else{
+             self.path = [info valueForKey:UIImagePickerControllerMediaURL];
+            
+            if(self.path == nil){
     
                 NSLog(@"Path of the image is nil ");
                 image = info[UIImagePickerControllerOriginalImage];
@@ -170,14 +173,13 @@
                         NSLog(@"error");
                         
                     }else{
-                        [self.array addObject:[assetURL absoluteString]];
-                        [self insertInDatabase:[assetURL absoluteString] year:[self getYear] month:[self getMonth] day:[self getDay]];
-                        NSLog(@"Inserting camera image path into database ");
+                        self.path = assetURL;
+                        NSLog(@"Got the path from camera ");
+
                     }
                 }];
             }
         }
-        NSLog(@"Array-ul are %lu elemente ",(unsigned long)self.array.count);
     }
     
     if(! self.displayingImage){
@@ -204,6 +206,7 @@
     
      self.delete_pressed = NO;
     
+    NSLog(@"The ultimate image is %@",[self.path absoluteString] );
     
 }
 
@@ -268,9 +271,18 @@
 
 
 
--(void)insertInDatabase:(NSString *)path year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;{
-    NSLog(@"Inserting into database %@ %d %d %d ",path,year,month,day);
-    [self.db executeUpdate:@"insert into fields(id, path ,year,month,day) values(?,?,?,?)",path,year,month,day];
+-(IBAction)goBack:(id)sender{
+    NSLog(@"Going back ");
+    [self performSegueWithIdentifier:@"createSegue" sender:self];
+}
+
+
+-(void)insertInDatabase:(NSString *)path description:(NSString *)description year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
+{
+    NSLog(@"Inserting into database %@ %@ %d %d %d ",path,description ,year,month,day);
+    NSString *update = [NSString stringWithFormat:@"insert into fields(path,description,year,month,day) values('%@','%@',%d,%d,%d)",path,description,year,month,day];
+    NSLog(@"%@",update);
+    [self.db executeUpdate:update];
 }
 
 
@@ -293,19 +305,23 @@
     self.delete_pressed = NO;
     [self.text setAlpha:0];
     
-    
-    if(self.assets == nil){
-        NSLog(@"Assets array is nil ");
-    }
-    
-    
-    if(self.array == nil){
-        NSLog(@"Array is nil in CreateViewController ");
-    }
-        
-    
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if(self.path == nil && self.description == nil){
+        NSLog(@"Image or text are null ");
+    }else if(self.image != nil && [self.text.text isEqualToString:@"Description"]){
+        NSLog(@"Please insert image or description");
+    }else{
+        [self insertInDatabase:[self.path absoluteString] description:[self.text text] year:[self getYear] month:[self getMonth] day:[self getDay]];
+    }
+    
+    
+    
+}
 
 - (void)didReceiveMemoryWarning
 {

@@ -16,7 +16,12 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.array.count ;
+    NSString * query = @"SELECT COUNT(*) FROM fields";
+    FMResultSet * result = [self.db executeQuery:query];
+    [result next];
+    int count = [result intForColumnIndex:0];
+    
+    return count ;
 }
 
 
@@ -26,14 +31,15 @@
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
-    
-    NSLog(@"Reloading data into table ");
+    self.result = [self.db 	executeQuery:@"SELECT * FROM fields"];
+    NSLog(@"Reloading data into table from database");
     
 }
 
 
 
 -(UITableViewCell * )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     
     static NSString * TAG = @"TAG";
     
@@ -63,12 +69,31 @@
     
     //Getting asset image using string from URL array modified by the CreateViewController
     
+    FMResultSet * resultSet = [self.db executeQuery:@"SELECT * FROM fields WHERE id = %d",indexPath.row+1];
+    NSString * path;
+    NSString * description ;
     
+    if(!resultSet)
+        NSLog(@"Error retrieving information from database ");
     
-    [self.library assetForURL:[NSURL URLWithString:[self.array objectAtIndex:indexPath.row]]
+    else{
+        if([resultSet next]){
+            path = [resultSet valueForKey:@"path"];
+            description = [resultSet valueForKey:@"description"];
+            
+            NSLog(@"Path in %@ ",path);
+            NSLog(@"Description is %@",description);
+
+        }
+    }
     
+    [self.library assetForURL:[NSURL URLWithString:path]
+    
+     
+     
     resultBlock:^(ALAsset * asset){
         cell.imageView.image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage];
+        cell.label.text = description ;
         NSLog(@"Image loaded successfully ");
         
     }
@@ -80,12 +105,13 @@
    
     
     
-    ALAsset * asset_curr = self.assets[indexPath.row];
+//    ALAsset * asset_curr = self.assets[indexPath.row];
     
 //    cell.imageView.image = [UIImage imageWithCGImage:[asset_curr thumbnail]];
     
     
     return cell;
+
 }
 
 
@@ -94,7 +120,7 @@
     switch (index) {
         case 0:
             NSLog(@"Logging to facebook");
-            [self postToFacebook:self];
+            [self postToFacebook:self withId:index];
             break;
             
         default:
@@ -120,11 +146,11 @@
 
 
 
--(void)postToFacebook:(id)sender{
+-(void)postToFacebook:(id)sender withId:(NSInteger)poz{
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         [controller setInitialText:@"Post to Facebook "];
-        [controller addImage:[UIImage imageNamed:@"default.png"]];
+        [controller addImage:[UIImage imageNamed:[self.array objectAtIndex:poz]]];
         [self presentViewController:controller animated:YES completion:NULL];
     }
 }
@@ -161,22 +187,31 @@
     
     //Accessing the database
     
+    //[[Database sharedInstance] openDatabase];
     
+    //design patttern singleton
     if(self.db == nil){
         self.paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         self.docsPath = [self.paths  objectAtIndex:0];
-        self.path   = [self.docsPath stringByAppendingString:@"/jurnee.sqlite"];
+        self.path   = [self.docsPath stringByAppendingPathComponent:@"jurnee.sqlite"];
+        // stringByAppendingPathComponent:
     
         self.db = [FMDatabase databaseWithPath:self.path];
     }
     
     
     if(![self.db open]){
-        return;
         NSLog(@"Cannot open database ");
-        [self.db executeUpdate:@"create table fields(id int primary key , path text , int year ,int month , int day "];
+        
+        return;
     }
-    
+    else
+    {
+        [self.db executeUpdate:@"create table fields(id integer primary key , path text ,description text , year integer , month integer ,  day interger)"];
+        
+        self.result = [self.db 	executeQuery:@"SELECT * FROM fields"];
+        
+    }
     
                      
     
@@ -229,7 +264,7 @@
     if( [segue.identifier isEqualToString:@"createSegue" ]){
         NSLog(@"Passing the array ");
         CreateViewController * destination = segue.destinationViewController;
-        destination.array = self.array;
+//        destination.array = self.array;
         destination.db = self.db;
     }
     
