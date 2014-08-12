@@ -24,7 +24,20 @@
     return count ;
 }
 
-
+/*
+ 
+ 
+ De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
+  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
+  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
+  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
+  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
+  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
+  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
+  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
+  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
+ 
+ */
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -50,11 +63,13 @@
         Post * newPost = [[Post alloc]init];
         [newPost setId:[self.result intForColumnIndex:0]];
         [newPost setUrl:[NSURL URLWithString:[self.result stringForColumnIndex:1]]];
-        [newPost setYear:[self.result intForColumnIndex:2]];
-        [newPost setMonth:[self.result intForColumnIndex:3]];
-        [newPost setDay:[self.result intForColumnIndex:4]];
+        [newPost setDescription:[self.result stringForColumnIndex:2]];
+        [newPost setYear:[self.result intForColumnIndex:3]];
+        [newPost setMonth:[self.result intForColumnIndex:4]];
+        [newPost setDay:[self.result intForColumnIndex:5]];
         
         [self.array addObject:newPost];
+
         
         NSLog(@"ID  =  %d ",newPost.id  );
         
@@ -99,32 +114,34 @@
     
     
     
-    FMResultSet * resultSet = [self.db executeQuery:[NSString stringWithFormat:@"select * from fields where id = %d",indexPath.row+1]];
-    NSURL * path;
-    NSString * description ;
+//    FMResultSet * resultSet = [self.db executeQuery:[NSString stringWithFormat:@"select * from fields where id = %d",indexPath.row+1]];
+//    NSURL * path;
+//    NSString * description ;
+//    
+//    if(!resultSet)
+//        NSLog(@"Error retrieving information from database ");
+//    
+//    else{
+//        
+//        if([resultSet next]){
+//            
+//            path = [NSURL URLWithString:[resultSet stringForColumnIndex:1]];
+//            description = [resultSet stringForColumnIndex:2];
+//            
+//            NSLog(@"Path in %@ ",path);
+//            NSLog(@"Description is %@",description);
+//
+//        }
+//    }
     
-    if(!resultSet)
-        NSLog(@"Error retrieving information from database ");
+    Post * post = [self.array objectAtIndex:indexPath.row];
     
-    else{
-        
-        if([resultSet next]){
-            
-            path = [NSURL URLWithString:[resultSet stringForColumnIndex:1]];
-            description = [resultSet stringForColumnIndex:2];
-            
-            NSLog(@"Path in %@ ",path);
-            NSLog(@"Description is %@",description);
-
-        }
-    }
     
-    [self.library assetForURL:path
+    [self.library assetForURL:post.url
     
     resultBlock:^(ALAsset * asset){
         cell.imageView.image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage];
-        cell.label.text = description ;
-        NSLog(@"Image loaded successfully ");
+        //cell.label.text = post.description;
         
     }
     failureBlock:^(NSError * error){
@@ -139,7 +156,8 @@
     
 //    cell.imageView.image = [UIImage imageWithCGImage:[asset_curr thumbnail]];
     
-    
+    cell.label.text = post.description;
+    NSLog(@"Description is %@ ",post.description);
     return cell;
 
 }
@@ -163,8 +181,10 @@
     switch (index) {
         case 0:
             NSLog(@"Deleting....");
-            NSString * query  = [NSString stringWithFormat:@"delete from fields where id = %d",index+1];
+            Post * post = [self.array objectAtIndex:index];
+            NSString * query  = [NSString stringWithFormat:@"delete from fields where id = %d",post.id];
             [self.db executeUpdate:query];
+            [self.array removeObjectAtIndex:index];
             [self.tableView reloadData ];
             break;
     }
@@ -175,8 +195,26 @@
 -(void)postToFacebook:(id)sender withId:(NSInteger)poz{
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
         [controller setInitialText:@"Post to Facebook "];
-        [controller addImage:[UIImage imageNamed:[self.array objectAtIndex:poz]]];
+        
+        
+        Post * post   = [self.array objectAtIndex:poz];
+        
+        __block UIImage * facebook_image ;
+        
+        [self.library assetForURL:post.url
+         
+         
+        resultBlock:^(ALAsset * asset){
+            facebook_image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage];
+        }
+        failureBlock:^(NSError * error){
+            NSLog(@"An error occurred when loading image for facebook ");
+        }];
+
+        
+        [controller addImage:facebook_image];
         [self presentViewController:controller animated:YES completion:NULL];
     }
 }
