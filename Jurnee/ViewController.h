@@ -15,6 +15,7 @@
 #import "FMDatabase.h"
 #import "SWRevealViewController.h"
 #import "Database.h"
+#import "Post.h"
 
 @interface ViewController : UIViewController <SWTableViewCellDelegate>
 
@@ -30,6 +31,7 @@
 @property NSString * path ;
 @property FMDatabase * db;
 @property FMResultSet * result ;
+@property NSInteger offset;
 
 
 @end

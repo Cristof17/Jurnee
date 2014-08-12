@@ -13,8 +13,8 @@
 @interface CustomViewCell : SWTableViewCell
 <SWTableViewCellDelegate>
 
-@property (weak,nonatomic) IBOutlet UIImageView  * imageView ;
-@property (weak,nonatomic) IBOutlet UILabel * label ;
+@property IBOutlet UIImageView  * imageView ;
+@property IBOutlet UILabel * label ;
 
 
 @end

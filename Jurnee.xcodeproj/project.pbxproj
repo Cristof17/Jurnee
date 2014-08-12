@@ -35,6 +35,11 @@
 		81B3146A1994B580009352A8 /* CustomViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B314691994B580009352A8 /* CustomViewCell.m */; };
 		81B3146D1994B87C009352A8 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B3146C1994B87C009352A8 /* facebook.png */; };
 		81B3146F1994BF81009352A8 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B3146E1994BF81009352A8 /* facebook@2x.png */; };
+		81B418CA199A63C0001C9CD8 /* RevealTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B418C9199A63C0001C9CD8 /* RevealTableViewController.m */; };
+		81B418CC199A680C001C9CD8 /* baby.ico in Resources */ = {isa = PBXBuildFile; fileRef = 81B418CB199A680C001C9CD8 /* baby.ico */; };
+		81B418CE199A68FD001C9CD8 /* old.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B418CD199A68FD001C9CD8 /* old.png */; };
+		81B418D0199A69D5001C9CD8 /* boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B418CF199A69D5001C9CD8 /* boy.png */; };
+		81B418D3199A70C4001C9CD8 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B418D2199A70C4001C9CD8 /* Post.m */; };
 		81BDF6FC1998E18F00F7E522 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BDF6F21998E18F00F7E522 /* FMDatabase.m */; };
 		81BDF6FD1998E18F00F7E522 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BDF6F41998E18F00F7E522 /* FMDatabaseAdditions.m */; };
 		81BDF6FE1998E18F00F7E522 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BDF6F61998E18F00F7E522 /* FMDatabasePool.m */; };
@@ -99,6 +104,13 @@
 		81B314691994B580009352A8 /* CustomViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewCell.m; sourceTree = "<group>"; };
 		81B3146C1994B87C009352A8 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../../facebook.png; sourceTree = "<group>"; };
 		81B3146E1994BF81009352A8 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook@2x.png"; path = "../../../Downloads/SwipeTableCell/SwipeTableCell/images/facebook@2x.png"; sourceTree = "<group>"; };
+		81B418C8199A63C0001C9CD8 /* RevealTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevealTableViewController.h; sourceTree = "<group>"; };
+		81B418C9199A63C0001C9CD8 /* RevealTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RevealTableViewController.m; sourceTree = "<group>"; };
+		81B418CB199A680C001C9CD8 /* baby.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = baby.ico; path = ../../../Downloads/baby.ico; sourceTree = "<group>"; };
+		81B418CD199A68FD001C9CD8 /* old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = old.png; path = ../../../Downloads/old.png; sourceTree = "<group>"; };
+		81B418CF199A69D5001C9CD8 /* boy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boy.png; path = ../../../Downloads/boy.png; sourceTree = "<group>"; };
+		81B418D1199A70C4001C9CD8 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		81B418D2199A70C4001C9CD8 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		81BDF6F11998E18F00F7E522 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = ../../fmdb/src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
 		81BDF6F21998E18F00F7E522 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = ../../fmdb/src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
 		81BDF6F31998E18F00F7E522 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = ../../fmdb/src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -194,6 +206,10 @@
 				81B229FA1993677A00C6FC4D /* AppDelegate.m */,
 				81B22A25199373B200C6FC4D /* CreateViewController.h */,
 				81B22A26199373B200C6FC4D /* CreateViewController.m */,
+				81B418C8199A63C0001C9CD8 /* RevealTableViewController.h */,
+				81B418C9199A63C0001C9CD8 /* RevealTableViewController.m */,
+				81B418D1199A70C4001C9CD8 /* Post.h */,
+				81B418D2199A70C4001C9CD8 /* Post.m */,
 				81B229FC1993677A00C6FC4D /* Main_iPhone.storyboard */,
 				81B229FF1993677A00C6FC4D /* Main_iPad.storyboard */,
 				81B22A021993677A00C6FC4D /* ViewController.h */,
@@ -215,6 +231,9 @@
 				81B229F31993677A00C6FC4D /* InfoPlist.strings */,
 				81B229F61993677A00C6FC4D /* main.m */,
 				81B229F81993677A00C6FC4D /* Jurnee-Prefix.pch */,
+				81B418CB199A680C001C9CD8 /* baby.ico */,
+				81B418CD199A68FD001C9CD8 /* old.png */,
+				81B418CF199A69D5001C9CD8 /* boy.png */,
 				817219CA1993DD4100EF58E7 /* default.png */,
 			);
 			name = "Supporting Files";
@@ -362,10 +381,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81B418CE199A68FD001C9CD8 /* old.png in Resources */,
 				81B22A011993677A00C6FC4D /* Main_iPad.storyboard in Resources */,
 				81B3146D1994B87C009352A8 /* facebook.png in Resources */,
+				81B418CC199A680C001C9CD8 /* baby.ico in Resources */,
 				81B3146F1994BF81009352A8 /* facebook@2x.png in Resources */,
 				81B22A061993677A00C6FC4D /* Images.xcassets in Resources */,
+				81B418D0199A69D5001C9CD8 /* boy.png in Resources */,
 				81B229FE1993677A00C6FC4D /* Main_iPhone.storyboard in Resources */,
 				81B229F51993677A00C6FC4D /* InfoPlist.strings in Resources */,
 				817219CB1993DD4100EF58E7 /* default.png in Resources */,
@@ -387,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81B418CA199A63C0001C9CD8 /* RevealTableViewController.m in Sources */,
 				81B22A27199373B200C6FC4D /* CreateViewController.m in Sources */,
 				81B314651994B53E009352A8 /* SWTableViewCell.m in Sources */,
 				81B314641994B53E009352A8 /* SWLongPressGestureRecognizer.m in Sources */,
@@ -399,6 +422,7 @@
 				81B3146A1994B580009352A8 /* CustomViewCell.m in Sources */,
 				81BDF6FD1998E18F00F7E522 /* FMDatabaseAdditions.m in Sources */,
 				81BDF7051998FC9600F7E522 /* SWRevealViewController.m in Sources */,
+				81B418D3199A70C4001C9CD8 /* Post.m in Sources */,
 				81B229FB1993677A00C6FC4D /* AppDelegate.m in Sources */,
 				81A763D8199A101800F8286B /* SMXCustomSegue.m in Sources */,
 				81B314671994B53E009352A8 /* SWUtilityButtonView.m in Sources */,

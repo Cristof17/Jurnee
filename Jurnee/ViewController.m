@@ -31,7 +31,35 @@
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
+    
+    FMResultSet *set = [self.db 	executeQuery:@"SELECT * FROM fields"];
+    
+    while([set next]){
+        NSLog(@"Path is %@ %@",[set stringForColumnIndex:1],[set stringForColumnIndex:2]);
+    }
+    
+    
+    [self.db executeUpdate:@"create table fields(id integer primary key , path text ,description text , year integer , month integer ,  day interger)"];
+    
     self.result = [self.db 	executeQuery:@"SELECT * FROM fields"];
+    
+    
+    self.array = [[NSMutableArray alloc]init];
+    
+    while([self.result next]){
+        Post * newPost = [[Post alloc]init];
+        [newPost setId:[self.result intForColumnIndex:0]];
+        [newPost setUrl:[NSURL URLWithString:[self.result stringForColumnIndex:1]]];
+        [newPost setYear:[self.result intForColumnIndex:2]];
+        [newPost setMonth:[self.result intForColumnIndex:3]];
+        [newPost setDay:[self.result intForColumnIndex:4]];
+        
+        [self.array addObject:newPost];
+        
+        NSLog(@"ID  =  %d ",newPost.id  );
+        
+    }
+    
     NSLog(@"Reloading data into table from database");
     
 }
@@ -69,17 +97,21 @@
     
     //Getting asset image using string from URL array modified by the CreateViewController
     
-    FMResultSet * resultSet = [self.db executeQuery:@"SELECT * FROM fields WHERE id = %d",indexPath.row+1];
-    NSString * path;
+    
+    
+    FMResultSet * resultSet = [self.db executeQuery:[NSString stringWithFormat:@"select * from fields where id = %d",indexPath.row+1]];
+    NSURL * path;
     NSString * description ;
     
     if(!resultSet)
         NSLog(@"Error retrieving information from database ");
     
     else{
+        
         if([resultSet next]){
-            path = [resultSet valueForKey:@"path"];
-            description = [resultSet valueForKey:@"description"];
+            
+            path = [NSURL URLWithString:[resultSet stringForColumnIndex:1]];
+            description = [resultSet stringForColumnIndex:2];
             
             NSLog(@"Path in %@ ",path);
             NSLog(@"Description is %@",description);
@@ -87,10 +119,8 @@
         }
     }
     
-    [self.library assetForURL:[NSURL URLWithString:path]
+    [self.library assetForURL:path
     
-     
-     
     resultBlock:^(ALAsset * asset){
         cell.imageView.image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage];
         cell.label.text = description ;
@@ -133,13 +163,9 @@
     switch (index) {
         case 0:
             NSLog(@"Deleting....");
-            [self.array removeObjectAtIndex:index];
+            NSString * query  = [NSString stringWithFormat:@"delete from fields where id = %d",index+1];
+            [self.db executeUpdate:query];
             [self.tableView reloadData ];
-            
-            
-            break;
-            
-        default:
             break;
     }
 }
@@ -167,6 +193,9 @@
 {
     
     [super viewDidLoad];
+    
+    NSLog(@"Offset is %d",self.offset);
+    
     [self.revealButtonItem setTarget:self.revealViewController];
     [self.revealButtonItem setAction: @selector( revealToggle: )];
     [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
@@ -207,12 +236,8 @@
     }
     else
     {
-        [self.db executeUpdate:@"create table fields(id integer primary key , path text ,description text , year integer , month integer ,  day interger)"];
-        
-        self.result = [self.db 	executeQuery:@"SELECT * FROM fields"];
         
     }
-    
                      
     
     
