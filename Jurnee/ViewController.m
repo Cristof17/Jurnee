@@ -237,6 +237,8 @@
     [self.revealButtonItem setTarget:self.revealViewController];
     [self.revealButtonItem setAction: @selector( revealToggle: )];
     [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    self.revealButtonItem.image = [UIImage imageNamed:@"reveal-icon.png"];
+    self.revealButtonItem.title = @"";
 
     
     if(self.library == nil){

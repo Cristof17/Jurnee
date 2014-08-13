@@ -55,8 +55,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUl-xa-CeM">
-                                <rect key="frame" x="9" y="70" width="302" height="63"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUl-xa-CeM">
+                                <rect key="frame" x="9" y="70" width="302" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.31291664860000001" green="0.70110818610000003" blue="0.63075231040000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -66,10 +66,11 @@
                                 </state>
                                 <connections>
                                     <action selector="goToday:" destination="ORy-5z-ZXm" eventType="touchUpInside" id="tIK-YY-cXf"/>
+                                    <segue destination="kNV-3R-Z85" kind="custom" customClass="SWRevealViewControllerSegue" id="hKm-UP-nQW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBR-90-aFI">
-                                <rect key="frame" x="9" y="141" width="302" height="63"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBR-90-aFI">
+                                <rect key="frame" x="9" y="178" width="302" height="98"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.66526578430000005" blue="0.73720577040000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -79,10 +80,11 @@
                                 </state>
                                 <connections>
                                     <action selector="goOneWeek:" destination="ORy-5z-ZXm" eventType="touchUpInside" id="952-2c-Gd7"/>
+                                    <segue destination="kNV-3R-Z85" kind="custom" customClass="SWRevealViewControllerSegue" id="X4e-bC-gb2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mp6-MX-zVg">
-                                <rect key="frame" x="9" y="212" width="302" height="63"/>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mp6-MX-zVg">
+                                <rect key="frame" x="9" y="284" width="302" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.51709825629999995" green="0.47313533590000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -92,22 +94,23 @@
                                 </state>
                                 <connections>
                                     <action selector="goTwoWeeks:" destination="ORy-5z-ZXm" eventType="touchUpInside" id="1uY-Ze-tts"/>
+                                    <segue destination="kNV-3R-Z85" kind="custom" customClass="SWRevealViewControllerSegue" id="FrK-y5-QOr"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="baby.ico" translatesAutoresizingMaskIntoConstraints="NO" id="y05-eO-QDl">
-                                <rect key="frame" x="25" y="81" width="42" height="42"/>
+                                <rect key="frame" x="20" y="85" width="80" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="boy.png" translatesAutoresizingMaskIntoConstraints="NO" id="57A-4D-tL7">
-                                <rect key="frame" x="25" y="152" width="42" height="42"/>
+                                <rect key="frame" x="15" y="194" width="90" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="old.png" translatesAutoresizingMaskIntoConstraints="NO" id="rfS-Bg-Pk3">
-                                <rect key="frame" x="32" y="223" width="29" height="42"/>
+                                <rect key="frame" x="35" y="296" width="51" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.42317000679347827" green="0.42317000679347827" blue="0.42317000679347827" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="BTa-XQ-fei"/>
                 </viewController>
@@ -133,7 +136,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TAG" rowHeight="71" id="nFR-hb-c2b" customClass="CustomViewCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="71"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="71"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nFR-hb-c2b" id="qNi-QO-xEA">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
@@ -179,7 +182,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Nw1-tW-iTY">
-                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="UsC-EN-ixH"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="UsC-EN-ixH"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vsn-ct-81j">
                             <connections>
                                 <segue destination="EuY-Rq-p1t" kind="push" identifier="createSegue" id="eRC-uP-KeV"/>
@@ -193,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zWF-hW-RmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1834" y="-596"/>
+            <point key="canvasLocation" x="2006" y="-440"/>
         </scene>
         <!--Create View Controller-->
         <scene sceneID="Muf-7X-HPn">
@@ -260,7 +263,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcV-Zq-CJ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="r0R-el-dFB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2398" y="-596"/>
+            <point key="canvasLocation" x="2774" y="-488"/>
         </scene>
     </scenes>
     <resources>
@@ -274,4 +277,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="hKm-UP-nQW"/>
+    </inferredMetricsTieBreakers>
 </document>
