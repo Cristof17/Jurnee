@@ -12,7 +12,8 @@
 
 
 @property NSInteger id ;
-@property NSURL * url ;
+@property UIImage * image ;
+@property NSURL * url;
 @property NSString * description;
 @property NSInteger year;
 @property NSInteger month;

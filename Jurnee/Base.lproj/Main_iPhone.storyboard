@@ -106,11 +106,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="old.png" translatesAutoresizingMaskIntoConstraints="NO" id="rfS-Bg-Pk3">
-                                <rect key="frame" x="35" y="296" width="51" height="62"/>
+                                <rect key="frame" x="35" y="303" width="51" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.42317000679347827" green="0.42317000679347827" blue="0.42317000679347827" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.19251019021739135" green="0.046700703024298476" blue="0.073298907150014164" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="BTa-XQ-fei"/>
                 </viewController>
@@ -138,11 +138,11 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TAG" rowHeight="71" id="nFR-hb-c2b" customClass="CustomViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="71"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nFR-hb-c2b" id="qNi-QO-xEA">
+                                        <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nFR-hb-c2b" id="qNi-QO-xEA">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nH9-pU-Uxa">
+                                                <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nH9-pU-Uxa">
                                                     <rect key="frame" x="20" y="6" width="58" height="58"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" red="0.99803757059999998" green="1" blue="0.99216238580000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -150,8 +150,8 @@
                                                         <constraint firstAttribute="width" constant="58" id="Ih5-oH-jWc"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZq-we-QAa">
-                                                    <rect key="frame" x="116" y="24" width="190" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZq-we-QAa">
+                                                    <rect key="frame" x="116" y="24" width="113" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -192,11 +192,49 @@
                     <connections>
                         <outlet property="revealButtonItem" destination="UsC-EN-ixH" id="6wD-La-K0U"/>
                         <outlet property="tableView" destination="0IB-Ck-B76" id="yeZ-s8-U3N"/>
+                        <segue destination="gCg-9i-TUH" kind="push" identifier="itemSegue" id="vdd-f9-ReR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zWF-hW-RmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2006" y="-440"/>
+            <point key="canvasLocation" x="2118" y="4"/>
+        </scene>
+        <!--Item View Controller-->
+        <scene sceneID="Ugo-LE-QKJ">
+            <objects>
+                <viewController id="gCg-9i-TUH" customClass="ItemViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GIn-gm-RwF"/>
+                        <viewControllerLayoutGuide type="bottom" id="zzL-pu-bCR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hlR-sH-xbn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A96-Ef-KE8">
+                                <rect key="frame" x="0.0" y="64" width="320" height="180"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" indicatorStyle="black" editable="NO" text="text" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TmD-QY-O0h">
+                                <rect key="frame" x="9" y="257" width="303" height="291"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.22708463240000001" green="0.50968070649999997" blue="0.4552332469" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="A96-Ef-KE8" id="Ylp-Iw-iqQ"/>
+                        <outlet property="textView" destination="TmD-QY-O0h" id="OzE-LY-7UU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zwh-d2-IYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2668" y="213"/>
         </scene>
         <!--Create View Controller-->
         <scene sceneID="Muf-7X-HPn">

@@ -16,7 +16,7 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSString * query = @"SELECT COUNT(*) FROM fields";
+    NSString * query = [NSString stringWithFormat:@"SELECT COUNT(*) FROM fields WHERE week = %d ",[self getWeek:self.offset]];
     FMResultSet * result = [self.db executeQuery:query];
     [result next];
     int count = [result intForColumnIndex:0];
@@ -24,35 +24,49 @@
     return count ;
 }
 
-/*
- 
- 
- De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
-  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
-  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
-  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
-  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
-  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
-  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
-  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
-  De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii De creeaaaat arrrraaaayyy ppentru  POSSTUUUURRiii
- 
- */
+
+-(NSInteger) getWeek:(NSInteger )offset{
+    
+    
+    NSDate * data = [NSDate date];
+    NSCalendar * calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents * components = [calendar components:NSYearCalendarUnit | NSWeekCalendarUnit fromDate:data];;
+    components.week -= offset;
+
+    NSLog(@"Week is %ld ",[components week]);
+    return [components week];
+}
+
+
+- (UIImage*)rotateUIImage:(UIImage*)sourceImage clockwise:(BOOL)clockwise
+{
+    CGSize size = sourceImage.size;
+    UIGraphicsBeginImageContext(CGSizeMake(size.height, size.width));
+    [[UIImage imageWithCGImage:[sourceImage CGImage] scale:1.0 orientation:clockwise ? UIImageOrientationRight : UIImageOrientationLeft] drawInRect:CGRectMake(0,0,size.height ,size.width)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [self.tableView reloadData];
+    [self getWeek:0];
+       
     
-    FMResultSet *set = [self.db 	executeQuery:@"SELECT * FROM fields"];
+    
+    FMResultSet *set = [self.db executeQuery:[NSString stringWithFormat:@"SELECT * FROM fields WHERE week= %ld",(long)[self getWeek:self.offset]]];
     
     while([set next]){
         NSLog(@"Path is %@ %@",[set stringForColumnIndex:1],[set stringForColumnIndex:2]);
     }
     
-    
-    [self.db executeUpdate:@"create table fields(id integer primary key , path text ,description text , year integer , month integer ,  day interger)"];
+//    [self.db executeUpdate:[NSString stringWithFormat:@"drop table if exists fields"]];
+    [self.db executeUpdate:@"create table fields(id integer primary key , path text ,description text , week integer)"];
     
     self.result = [self.db 	executeQuery:@"SELECT * FROM fields"];
     
@@ -60,6 +74,9 @@
     self.array = [[NSMutableArray alloc]init];
     
     while([self.result next]){
+        
+        __block UIImage * img ;
+        
         Post * newPost = [[Post alloc]init];
         [newPost setId:[self.result intForColumnIndex:0]];
         [newPost setUrl:[NSURL URLWithString:[self.result stringForColumnIndex:1]]];
@@ -68,16 +85,42 @@
         [newPost setMonth:[self.result intForColumnIndex:4]];
         [newPost setDay:[self.result intForColumnIndex:5]];
         
+        [self.library assetForURL:newPost.url
+         
+                      resultBlock:^(ALAsset * asset){
+                          newPost.image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage scale:1.0f orientation:UIImageOrientationRight ];
+                          //cell.label.text = post.description;
+                          
+                      }
+                     failureBlock:^(NSError * error){
+                         NSLog(@"An error occurred when loading image in viewWillAppear ");
+                     }];
+//        
+//        newPost.image = [self rotateUIImage:img clockwise:YES	];
         [self.array addObject:newPost];
-
-        
-        NSLog(@"ID  =  %d ",newPost.id  );
-        
+        [self.tableView reloadData];
     }
     
     NSLog(@"Reloading data into table from database");
     
 }
+
+
+
+-(void)tableView:(UITableView * )tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Row selected at position %ld ",(long)indexPath.row);
+    
+    Post * post = [self.array objectAtIndex:indexPath.row];
+    
+
+    
+    self.textToSend  = post.description;
+    self.imageToSend = post.image;
+    
+    [self performSegueWithIdentifier:@"itemSegue" sender:self];
+    
+}
+
 
 
 
@@ -109,10 +152,14 @@
     
     [cell.label setText:@"Yuhuu"];
     cell.imageView.image = [UIImage imageNamed:@"default.png"];
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.imageView.clipsToBounds = YES;
+    
+    
     
     //Getting asset image using string from URL array modified by the CreateViewController
     
-    
+
     
 //    FMResultSet * resultSet = [self.db executeQuery:[NSString stringWithFormat:@"select * from fields where id = %d",indexPath.row+1]];
 //    NSURL * path;
@@ -140,7 +187,7 @@
     [self.library assetForURL:post.url
     
     resultBlock:^(ALAsset * asset){
-        cell.imageView.image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage];
+        cell.imageView.image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage scale:1.0f orientation:UIImageOrientationRight];
         //cell.label.text = post.description;
         
     }
@@ -164,25 +211,37 @@
 
 
 
--(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index{
-    switch (index) {
-        case 0:
-            NSLog(@"Logging to facebook");
-            [self postToFacebook:self withId:index];
-            break;
-            
-        default:
-            break;
-    }
+
+
+
+
+
+-(IBAction)goText:(id)sender{
+    [self performSegueWithIdentifier:@"textSegue" sender:self];
 }
 
 
+
+-(IBAction)goImage:(id)sender{
+    [self performSegueWithIdentifier:@"imageSegue" sender:self];
+}
+
+
+
+
+
 -(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index{
+    
+    UITableView * parent = (UITableView *)cell.superview.superview;
+    NSIndexPath * indexPath =[parent indexPathForCell:cell];
+    NSInteger row =[indexPath row];
+    NSLog(@"Row = %ld",row);
     switch (index) {
         case 0:
+            
             NSLog(@"Deleting....");
-            Post * post = [self.array objectAtIndex:index];
-            NSString * query  = [NSString stringWithFormat:@"delete from fields where id = %d",post.id];
+            Post * post = [self.array objectAtIndex:row];
+            NSString * query  = [NSString stringWithFormat:@"delete from fields where id = %ld",(long)post.id];
             [self.db executeUpdate:query];
             [self.array removeObjectAtIndex:index];
             [self.tableView reloadData ];
@@ -190,39 +249,44 @@
     }
 }
 
-
+-(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index{
+    
+    UITableView * parent = (UITableView *)cell.superview.superview;
+    NSIndexPath * indexPath =[parent indexPathForCell:cell];
+    NSInteger row =[indexPath row];
+    NSLog(@"Row = %ld",row);
+    
+    
+    Post * post = [self.array objectAtIndex:row];
+    
+    switch (index) {
+        case 0:
+            
+            
+            NSLog(@"Logging to facebook");
+            [self postToFacebook:self withId:row];
+            break;
+            
+        default:
+            break;
+    }
+}
 
 -(void)postToFacebook:(id)sender withId:(NSInteger)poz{
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         
-        [controller setInitialText:@"Post to Facebook "];
+       
         
         
         Post * post   = [self.array objectAtIndex:poz];
-        
-        __block UIImage * facebook_image ;
-        
-        [self.library assetForURL:post.url
-         
-         
-        resultBlock:^(ALAsset * asset){
-            facebook_image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage];
-        }
-        failureBlock:^(NSError * error){
-            NSLog(@"An error occurred when loading image for facebook ");
-        }];
-
-        
-        [controller addImage:facebook_image];
+        [controller setInitialText:post.description];
+      
+        [controller addImage:post.image];
         [self presentViewController:controller animated:YES completion:NULL];
     }
 }
 
--(void)tableView:(UITableView * )tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"Row selected at position %ld ",(long)indexPath.row);
-    
-}
 
 
 
@@ -320,11 +384,22 @@
 
 
 
+
+
+
+
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    if(self.array == nil){
-        NSLog(@"Array is nil , creating one");
+    if([segue.identifier isEqualToString:@"itemSegue"]){
+        ItemViewController * controller =segue.destinationViewController ;
+        
+        controller.text = self.textToSend;
+        controller.image = self.imageToSend;
     }
+    
+    
+    
     
     if( [segue.identifier isEqualToString:@"createSegue" ]){
         NSLog(@"Passing the array ");
@@ -334,7 +409,6 @@
     }
     
 }
-
 
 
 

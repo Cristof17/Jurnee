@@ -86,36 +86,15 @@
 
 
 
--(NSInteger) getYear{
+-(NSInteger) getWeek{
     
     
     NSDate * data = [NSDate date];
     NSCalendar * calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents * components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:data];
-    NSLog(@"Year is %d ",[components year] );
-    return [components year];
+    NSDateComponents * components = [calendar components:NSYearCalendarUnit | NSWeekCalendarUnit | NSDayCalendarUnit fromDate:data];
+    return [components week];
 }
 
--(NSInteger) getMonth{
-    
-    
-    NSDate * data = [NSDate date];
-    NSCalendar * calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents * components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:data];;\
-    NSLog(@"Month is %d ",[components month] );
-    return [components month];
-}
-
-
--(NSInteger) getDay{
-    
-    
-    NSDate * data = [NSDate date];
-    NSCalendar * calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents * components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:data];;
-    NSLog(@"Day is %d ",[components day] );
-    return [components day];
-}
 
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
@@ -277,10 +256,10 @@
 }
 
 
--(void)insertInDatabase:(NSString *)path description:(NSString *)description year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
+-(void)insertInDatabase:(NSString *)path description:(NSString *)description week:(NSInteger)week
 {
-    NSLog(@"Inserting into database %@ %@ %d %d %d ",path,description ,year,month,day);
-    NSString *update = [NSString stringWithFormat:@"insert into fields(path,description,year,month,day) values('%@','%@',%d,%d,%d)",path,description,year,month,day];
+    NSLog(@"Inserting into database %@ %@ %ld ",path,description ,(long)week);
+    NSString *update = [NSString stringWithFormat:@"insert into fields(path,description,week) values('%@','%@',%ld)",path,description,(long)week];
     NSLog(@"%@",update);
     [self.db executeUpdate:update];
 }
@@ -303,6 +282,9 @@
 
     self.displayingImage = YES;
     self.delete_pressed = NO;
+    self.image.contentMode = UIViewContentModeScaleAspectFit;
+    self.image.clipsToBounds = YES;
+    
     [self.text setAlpha:0];
     
 }
@@ -316,7 +298,7 @@
     }else if(self.image != nil && [self.text.text isEqualToString:@"Description"]){
         NSLog(@"Please insert image or description");
     }else{
-        [self insertInDatabase:[self.path absoluteString] description:[self.text text] year:[self getYear] month:[self getMonth] day:[self getDay]];
+        [self insertInDatabase:[self.path absoluteString] description:[self.text text] week:[self getWeek]];
     }
     
     

@@ -16,6 +16,7 @@
 #import "SWRevealViewController.h"
 #import "Database.h"
 #import "Post.h"
+#import "ItemViewController.h"
 
 @interface ViewController : UIViewController <SWTableViewCellDelegate>
 
@@ -32,6 +33,16 @@
 @property FMDatabase * db;
 @property FMResultSet * result ;
 @property NSInteger offset;
+@property NSDate  * current;
+@property NSCalendar * calendar ;
+@property NSDateComponents * components;
+@property NSString * textToSend;
+@property UIImage * imageToSend;
+@property NSInteger indexForFacebook;
 
+
+-(NSInteger)getWeek:(NSInteger )offset;
+-(IBAction)goText:(id)sender;
+-(IBAction)goImage:(id)sender;
 
 @end

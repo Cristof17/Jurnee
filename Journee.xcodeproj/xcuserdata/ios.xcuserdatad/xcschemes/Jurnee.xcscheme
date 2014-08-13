@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81B229E61993677A00C6FC4D"
                BuildableName = "Jurnee.app"
-               BlueprintName = "Jurnee"
-               ReferencedContainer = "container:Jurnee.xcodeproj">
+               BlueprintName = "Journee"
+               ReferencedContainer = "container:Journee.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81B22A0A1993677A00C6FC4D"
                BuildableName = "JurneeTests.xctest"
-               BlueprintName = "JurneeTests"
-               ReferencedContainer = "container:Jurnee.xcodeproj">
+               BlueprintName = "JourneeTests"
+               ReferencedContainer = "container:Journee.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81B229E61993677A00C6FC4D"
             BuildableName = "Jurnee.app"
-            BlueprintName = "Jurnee"
-            ReferencedContainer = "container:Jurnee.xcodeproj">
+            BlueprintName = "Journee"
+            ReferencedContainer = "container:Journee.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81B229E61993677A00C6FC4D"
             BuildableName = "Jurnee.app"
-            BlueprintName = "Jurnee"
-            ReferencedContainer = "container:Jurnee.xcodeproj">
+            BlueprintName = "Journee"
+            ReferencedContainer = "container:Journee.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81B229E61993677A00C6FC4D"
             BuildableName = "Jurnee.app"
-            BlueprintName = "Jurnee"
-            ReferencedContainer = "container:Jurnee.xcodeproj">
+            BlueprintName = "Journee"
+            ReferencedContainer = "container:Journee.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

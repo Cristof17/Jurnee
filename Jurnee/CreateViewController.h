@@ -31,9 +31,7 @@
 
 -(IBAction)clearFields;
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
--(NSInteger)getYear;
--(NSInteger)getMonth;
--(NSInteger)getDay;
--(void)insertInDatabase:(NSString *)path description:(NSString *)description year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
+-(NSInteger)getWeek;
+-(void)insertInDatabase:(NSString *)path description:(NSString *)description week:(NSInteger)week ;
 
 @end

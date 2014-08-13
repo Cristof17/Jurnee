@@ -40,6 +40,7 @@
 		81B418CE199A68FD001C9CD8 /* old.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B418CD199A68FD001C9CD8 /* old.png */; };
 		81B418D0199A69D5001C9CD8 /* boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B418CF199A69D5001C9CD8 /* boy.png */; };
 		81B418D3199A70C4001C9CD8 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B418D2199A70C4001C9CD8 /* Post.m */; };
+		81BA558F199B91C100799DC4 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BA558E199B91C100799DC4 /* ItemViewController.m */; };
 		81BDF6FC1998E18F00F7E522 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BDF6F21998E18F00F7E522 /* FMDatabase.m */; };
 		81BDF6FD1998E18F00F7E522 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BDF6F41998E18F00F7E522 /* FMDatabaseAdditions.m */; };
 		81BDF6FE1998E18F00F7E522 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BDF6F61998E18F00F7E522 /* FMDatabasePool.m */; };
@@ -67,14 +68,14 @@
 		81A763D41999FCCE00F8286B /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		81A763D6199A101800F8286B /* SMXCustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMXCustomSegue.h; path = ../../CustomUnwindSegue/CustomUnwindSegue/SMXCustomSegue.h; sourceTree = "<group>"; };
 		81A763D7199A101800F8286B /* SMXCustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMXCustomSegue.m; path = ../../CustomUnwindSegue/CustomUnwindSegue/SMXCustomSegue.m; sourceTree = "<group>"; };
-		81B229E71993677A00C6FC4D /* Jurnee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jurnee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81B229E71993677A00C6FC4D /* Journee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B229EA1993677A00C6FC4D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		81B229EC1993677A00C6FC4D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		81B229EE1993677A00C6FC4D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		81B229F21993677A00C6FC4D /* Jurnee-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Jurnee-Info.plist"; sourceTree = "<group>"; };
+		81B229F21993677A00C6FC4D /* Journee-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Journee-Info.plist"; sourceTree = "<group>"; };
 		81B229F41993677A00C6FC4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		81B229F61993677A00C6FC4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		81B229F81993677A00C6FC4D /* Jurnee-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jurnee-Prefix.pch"; sourceTree = "<group>"; };
+		81B229F81993677A00C6FC4D /* Journee-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Journee-Prefix.pch"; sourceTree = "<group>"; };
 		81B229F91993677A00C6FC4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		81B229FA1993677A00C6FC4D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		81B229FD1993677A00C6FC4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
@@ -82,9 +83,9 @@
 		81B22A021993677A00C6FC4D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		81B22A031993677A00C6FC4D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		81B22A051993677A00C6FC4D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		81B22A0B1993677A00C6FC4D /* JurneeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JurneeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		81B22A0B1993677A00C6FC4D /* JourneeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JourneeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B22A0C1993677A00C6FC4D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		81B22A141993677A00C6FC4D /* JurneeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JurneeTests-Info.plist"; sourceTree = "<group>"; };
+		81B22A141993677A00C6FC4D /* JourneeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JourneeTests-Info.plist"; sourceTree = "<group>"; };
 		81B22A161993677A00C6FC4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		81B22A181993677A00C6FC4D /* JurneeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JurneeTests.m; sourceTree = "<group>"; };
 		81B22A25199373B200C6FC4D /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
@@ -112,6 +113,8 @@
 		81B418CF199A69D5001C9CD8 /* boy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boy.png; path = ../../../Downloads/boy.png; sourceTree = "<group>"; };
 		81B418D1199A70C4001C9CD8 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		81B418D2199A70C4001C9CD8 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		81BA558D199B91C100799DC4 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		81BA558E199B91C100799DC4 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
 		81BDF6F11998E18F00F7E522 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = ../../fmdb/src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
 		81BDF6F21998E18F00F7E522 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = ../../fmdb/src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
 		81BDF6F31998E18F00F7E522 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = ../../fmdb/src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -178,8 +181,8 @@
 		81B229E81993677A00C6FC4D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				81B229E71993677A00C6FC4D /* Jurnee.app */,
-				81B22A0B1993677A00C6FC4D /* JurneeTests.xctest */,
+				81B229E71993677A00C6FC4D /* Journee.app */,
+				81B22A0B1993677A00C6FC4D /* JourneeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,6 +217,8 @@
 				81B418D2199A70C4001C9CD8 /* Post.m */,
 				81B229FC1993677A00C6FC4D /* Main_iPhone.storyboard */,
 				81B229FF1993677A00C6FC4D /* Main_iPad.storyboard */,
+				81BA558D199B91C100799DC4 /* ItemViewController.h */,
+				81BA558E199B91C100799DC4 /* ItemViewController.m */,
 				81B22A021993677A00C6FC4D /* ViewController.h */,
 				81B22A031993677A00C6FC4D /* ViewController.m */,
 				81B314681994B580009352A8 /* CustomViewCell.h */,
@@ -229,10 +234,10 @@
 		81B229F11993677A00C6FC4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				81B229F21993677A00C6FC4D /* Jurnee-Info.plist */,
+				81B229F21993677A00C6FC4D /* Journee-Info.plist */,
 				81B229F31993677A00C6FC4D /* InfoPlist.strings */,
 				81B229F61993677A00C6FC4D /* main.m */,
-				81B229F81993677A00C6FC4D /* Jurnee-Prefix.pch */,
+				81B229F81993677A00C6FC4D /* Journee-Prefix.pch */,
 				81B418CB199A680C001C9CD8 /* baby.ico */,
 				81B418CD199A68FD001C9CD8 /* old.png */,
 				81BE08F1199B57A90055AFBE /* reveal-icon@2x.png */,
@@ -254,7 +259,7 @@
 		81B22A131993677A00C6FC4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				81B22A141993677A00C6FC4D /* JurneeTests-Info.plist */,
+				81B22A141993677A00C6FC4D /* JourneeTests-Info.plist */,
 				81B22A151993677A00C6FC4D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -311,9 +316,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		81B229E61993677A00C6FC4D /* Jurnee */ = {
+		81B229E61993677A00C6FC4D /* Journee */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81B22A1C1993677A00C6FC4D /* Build configuration list for PBXNativeTarget "Jurnee" */;
+			buildConfigurationList = 81B22A1C1993677A00C6FC4D /* Build configuration list for PBXNativeTarget "Journee" */;
 			buildPhases = (
 				81B229E31993677A00C6FC4D /* Sources */,
 				81B229E41993677A00C6FC4D /* Frameworks */,
@@ -323,14 +328,14 @@
 			);
 			dependencies = (
 			);
-			name = Jurnee;
+			name = Journee;
 			productName = Jurnee;
-			productReference = 81B229E71993677A00C6FC4D /* Jurnee.app */;
+			productReference = 81B229E71993677A00C6FC4D /* Journee.app */;
 			productType = "com.apple.product-type.application";
 		};
-		81B22A0A1993677A00C6FC4D /* JurneeTests */ = {
+		81B22A0A1993677A00C6FC4D /* JourneeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81B22A1F1993677A00C6FC4D /* Build configuration list for PBXNativeTarget "JurneeTests" */;
+			buildConfigurationList = 81B22A1F1993677A00C6FC4D /* Build configuration list for PBXNativeTarget "JourneeTests" */;
 			buildPhases = (
 				81B22A071993677A00C6FC4D /* Sources */,
 				81B22A081993677A00C6FC4D /* Frameworks */,
@@ -341,9 +346,9 @@
 			dependencies = (
 				81B22A111993677A00C6FC4D /* PBXTargetDependency */,
 			);
-			name = JurneeTests;
+			name = JourneeTests;
 			productName = JurneeTests;
-			productReference = 81B22A0B1993677A00C6FC4D /* JurneeTests.xctest */;
+			productReference = 81B22A0B1993677A00C6FC4D /* JourneeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -360,7 +365,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 81B229E21993677A00C6FC4D /* Build configuration list for PBXProject "Jurnee" */;
+			buildConfigurationList = 81B229E21993677A00C6FC4D /* Build configuration list for PBXProject "Journee" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -373,8 +378,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				81B229E61993677A00C6FC4D /* Jurnee */,
-				81B22A0A1993677A00C6FC4D /* JurneeTests */,
+				81B229E61993677A00C6FC4D /* Journee */,
+				81B22A0A1993677A00C6FC4D /* JourneeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -430,6 +435,7 @@
 				81B229FB1993677A00C6FC4D /* AppDelegate.m in Sources */,
 				81A763D8199A101800F8286B /* SMXCustomSegue.m in Sources */,
 				81B314671994B53E009352A8 /* SWUtilityButtonView.m in Sources */,
+				81BA558F199B91C100799DC4 /* ItemViewController.m in Sources */,
 				81BDF6FE1998E18F00F7E522 /* FMDatabasePool.m in Sources */,
 				81B314661994B53E009352A8 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				81A763D51999FCCE00F8286B /* Database.m in Sources */,
@@ -450,7 +456,7 @@
 /* Begin PBXTargetDependency section */
 		81B22A111993677A00C6FC4D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 81B229E61993677A00C6FC4D /* Jurnee */;
+			target = 81B229E61993677A00C6FC4D /* Journee */;
 			targetProxy = 81B22A101993677A00C6FC4D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -570,10 +576,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Jurnee/Jurnee-Prefix.pch";
-				INFOPLIST_FILE = "Jurnee/Jurnee-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Jurnee/Journee-Prefix.pch";
+				INFOPLIST_FILE = "Jurnee/Journee-Info.plist";
+				PRODUCT_NAME = Journee;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -583,10 +590,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Jurnee/Jurnee-Prefix.pch";
-				INFOPLIST_FILE = "Jurnee/Jurnee-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Jurnee/Journee-Prefix.pch";
+				INFOPLIST_FILE = "Jurnee/Journee-Info.plist";
+				PRODUCT_NAME = Journee;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -607,8 +615,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "JurneeTests/JurneeTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "JurneeTests/JourneeTests-Info.plist";
+				PRODUCT_NAME = JourneeTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -626,8 +634,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Jurnee/Jurnee-Prefix.pch";
-				INFOPLIST_FILE = "JurneeTests/JurneeTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "JurneeTests/JourneeTests-Info.plist";
+				PRODUCT_NAME = JourneeTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -636,7 +644,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		81B229E21993677A00C6FC4D /* Build configuration list for PBXProject "Jurnee" */ = {
+		81B229E21993677A00C6FC4D /* Build configuration list for PBXProject "Journee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81B22A1A1993677A00C6FC4D /* Debug */,
@@ -645,7 +653,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81B22A1C1993677A00C6FC4D /* Build configuration list for PBXNativeTarget "Jurnee" */ = {
+		81B22A1C1993677A00C6FC4D /* Build configuration list for PBXNativeTarget "Journee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81B22A1D1993677A00C6FC4D /* Debug */,
@@ -654,7 +662,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81B22A1F1993677A00C6FC4D /* Build configuration list for PBXNativeTarget "JurneeTests" */ = {
+		81B22A1F1993677A00C6FC4D /* Build configuration list for PBXNativeTarget "JourneeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81B22A201993677A00C6FC4D /* Debug */,
